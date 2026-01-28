@@ -38,44 +38,7 @@ get_header();
 			if ( $hospitals->have_posts() ) :
 				while ( $hospitals->have_posts() ) : $hospitals->the_post();
 					
-					// Get ACF fields
-					$hospital_type  = get_field( 'hospital_type' );
-					$bio_short      = get_field( 'bio_short' );
-					$bed_capacity   = get_field( 'bed_capacity' );
-					$accreditation  = get_field( 'accreditation' ); // Array of checkboxes
-					
-					// Get taxonomies
-					$destinations = get_the_terms( get_the_ID(), 'destination' );
-					$location = '';
-					if ( $destinations && ! is_wp_error( $destinations ) ) {
-						$location = $destinations[0]->name;
-					}
-					
-					$specialties = get_the_terms( get_the_ID(), 'specialty' );
-					$specialty_pills = array();
-					if ( $specialties && ! is_wp_error( $specialties ) ) {
-						$specialty_pills = array_slice( $specialties, 0, 4 );
-					}
-					
-					// Featured image
-					$image_url = get_the_post_thumbnail_url( get_the_ID(), 'hospital-featured' );
-					if ( ! $image_url ) {
-						$image_url = 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=500&fit=crop';
-					}
-					
-					// Type labels
-					$type_labels = array(
-						'multi'  => 'Multi-Specialty Hospital',
-						'super'  => 'Super-Specialty Hospital',
-						'clinic' => 'Clinic',
-					);
-					$type_label = $type_labels[ $hospital_type ] ?? $hospital_type;
-					
-					// Accreditation badge (show first one)
-					$badge = '';
-					if ( is_array( $accreditation ) && ! empty( $accreditation ) ) {
-						$badge = $accreditation[0];
-					}
+					$data = erewhon_get_hospital_card_data();
 					?>
 					
 					<article class="card card--hospital">
@@ -83,62 +46,62 @@ get_header();
 						<!-- Image -->
 						<div class="card__media">
 							<img 
-								src="<?php echo esc_url( $image_url ); ?>" 
-								alt="<?php echo esc_attr( get_the_title() ); ?>"
+								src="<?php echo esc_url( $data['image_url'] ); ?>"
+								alt="<?php echo esc_attr( $data['title'] ); ?>"
 								class="card__image"
 								loading="lazy"
 							>
-							<?php if ( $badge ) : ?>
-								<span class="card__badge"><?php echo esc_html( $badge ); ?> Accredited</span>
+							<?php if ( $data['badge'] ) : ?>
+								<span class="card__badge"><?php echo esc_html( $data['badge'] ); ?> Accredited</span>
 							<?php endif; ?>
 						</div>
 
 						<!-- Content -->
 						<div class="card__content">
-							<?php if ( $type_label ) : ?>
-								<div class="card__eyebrow"><?php echo esc_html( $type_label ); ?></div>
+							<?php if ( $data['type_label'] ) : ?>
+								<div class="card__eyebrow"><?php echo esc_html( $data['type_label'] ); ?></div>
 							<?php endif; ?>
 							
 							<h3 class="card__heading">
-								<a href="<?php the_permalink(); ?>">
-									<?php the_title(); ?>
+								<a href="<?php echo esc_url( $data['permalink'] ); ?>">
+									<?php echo esc_html( $data['title'] ); ?>
 								</a>
 							</h3>
 							
-							<?php if ( $bio_short ) : ?>
+							<?php if ( $data['bio_short'] ) : ?>
 								<p class="card__text">
-									<?php echo esc_html( wp_trim_words( $bio_short, 30 ) ); ?>
+									<?php echo esc_html( wp_trim_words( $data['bio_short'], 30 ) ); ?>
 								</p>
 							<?php endif; ?>
 							
 							<!-- Meta Info -->
 							<div class="flex flex-wrap gap-l mt-m">
-								<?php if ( $location ) : ?>
+								<?php if ( $data['location'] ) : ?>
 									<div class="card__meta">
 										<svg class="align-middle" width="16" height="16" viewBox="0 0 16 16" fill="none">
 											<path d="M8 8.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" stroke="currentColor" stroke-width="1.5"/>
 											<path d="M13 7c0 3.5-5 7-5 7s-5-3.5-5-7a5 5 0 0110 0z" stroke="currentColor" stroke-width="1.5"/>
 										</svg>
-										<span><?php echo esc_html( $location ); ?></span>
+										<span><?php echo esc_html( $data['location'] ); ?></span>
 									</div>
 								<?php endif; ?>
 								
-								<?php if ( $bed_capacity ) : ?>
+								<?php if ( $data['bed_capacity'] ) : ?>
 									<div class="card__meta">
 										<svg class="align-middle" width="16" height="16" viewBox="0 0 16 16" fill="none">
 											<rect x="2" y="7" width="12" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
 											<path d="M4 7V5a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.5"/>
 										</svg>
-										<span><?php echo absint( $bed_capacity ); ?> beds</span>
+										<span><?php echo absint( $data['bed_capacity'] ); ?> beds</span>
 									</div>
 								<?php endif; ?>
 							</div>
 							
 							<!-- Specialty Pills -->
-							<?php if ( ! empty( $specialty_pills ) ) : ?>
+							<?php if ( ! empty( $data['specialty_pills'] ) ) : ?>
 								<div class="mt-m">
 									<ul class="pills">
-										<?php foreach ( $specialty_pills as $spec ) : ?>
+										<?php foreach ( $data['specialty_pills'] as $spec ) : ?>
 											<li><span class="pill pill--secondary"><?php echo esc_html( $spec->name ); ?></span></li>
 										<?php endforeach; ?>
 									</ul>
@@ -148,7 +111,7 @@ get_header();
 
 						<!-- Footer -->
 						<div class="card__footer">
-							<a href="<?php the_permalink(); ?>" class="btn btn--primary">
+							<a href="<?php echo esc_url( $data['permalink'] ); ?>" class="btn btn--primary">
 								View Hospital Details
 							</a>
 						</div>

@@ -174,6 +174,7 @@ $required_files = array(
 	'/inc/template-tags.php',
 	'/inc/template-functions.php',
 	'/inc/customizer.php',
+	'/inc/data-helpers.php',
 );
 
 foreach ( $required_files as $file ) {
