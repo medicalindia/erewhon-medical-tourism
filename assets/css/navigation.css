@@ -1,0 +1,436 @@
+/**
+ * Navigation - Erewhon Medical Tourism
+ * 100% Token-Based
+ * Responsive, accessible, mobile-friendly
+ */
+
+/* ============================================
+   SITE HEADER
+   ============================================ */
+.site-header {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-m) var(--space-l);
+  max-width: 85.375rem; /* 1366px */
+  margin: 0 auto;
+}
+
+/* ============================================
+   LOGO / SITE TITLE
+   ============================================ */
+.site-branding {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.site-logo {
+  height: 2.5rem; /* 40px */
+  width: auto;
+}
+
+.site-title {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.site-title a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.site-title a:hover {
+  color: var(--primary-hover);
+}
+
+.site-description {
+  display: none; /* Hidden by default */
+}
+
+/* ============================================
+   MAIN NAVIGATION
+   ============================================ */
+.main-navigation {
+  display: flex;
+  align-items: center;
+  gap: var(--space-l);
+}
+
+.main-navigation ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-m);
+  align-items: center;
+}
+
+.main-navigation li {
+  margin: 0;
+  position: relative;
+}
+
+.main-navigation a {
+  display: block;
+  padding: var(--space-xs) var(--space-s);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: var(--text-m);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-l);
+}
+
+.main-navigation a:hover,
+.main-navigation a:focus {
+  color: var(--primary);
+  background: var(--primary-ultra-light);
+}
+
+/* Current page indicator */
+.main-navigation .current-menu-item > a,
+.main-navigation .current_page_item > a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ============================================
+   CTA BUTTON IN NAV
+   ============================================ */
+.nav-cta {
+  margin-left: var(--space-s);
+}
+
+.nav-cta .btn {
+  padding: var(--space-s) var(--space-l);
+  font-size: var(--text-m);
+  white-space: nowrap;
+}
+
+/* ============================================
+   DROPDOWN MENUS
+   ============================================ */
+.main-navigation .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 12.5rem; /* 200px */
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-xs);
+  margin-top: var(--space-xs);
+  
+  /* Hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.5rem);
+  transition: all var(--transition-fast);
+  
+  /* Stack vertically */
+  flex-direction: column;
+  gap: 0;
+}
+
+.main-navigation li:hover > .sub-menu,
+.main-navigation li:focus-within > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.main-navigation .sub-menu li {
+  width: 100%;
+}
+
+.main-navigation .sub-menu a {
+  padding: var(--space-s) var(--space-m);
+  width: 100%;
+  border-radius: var(--radius-l);
+}
+
+.main-navigation .sub-menu a:hover {
+  background: var(--primary-ultra-light);
+}
+
+/* Dropdown indicator */
+.main-navigation .menu-item-has-children > a::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: var(--space-xs);
+  border-left: 0.25rem solid transparent;
+  border-right: 0.25rem solid transparent;
+  border-top: 0.25rem solid currentColor;
+  vertical-align: middle;
+}
+
+/* ============================================
+   MOBILE MENU TOGGLE
+   ============================================ */
+.menu-toggle {
+  display: none; /* Hidden on desktop */
+  background: transparent;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-l);
+  padding: var(--space-s);
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.menu-toggle:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.menu-toggle:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Hamburger icon */
+.menu-toggle .icon {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 1.5rem;
+}
+
+.menu-toggle .icon span {
+  display: block;
+  height: 2px;
+  background: currentColor;
+  transition: all var(--transition-fast);
+}
+
+/* Animated hamburger to X */
+.menu-toggle.toggled .icon span:nth-child(1) {
+  transform: rotate(45deg) translateY(0.5rem);
+}
+
+.menu-toggle.toggled .icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.toggled .icon span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-0.5rem);
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+@media (max-width: 48rem) {
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .main-navigation {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-light);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-l);
+    
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-1rem);
+    transition: all var(--transition-base);
+  }
+  
+  .main-navigation.toggled {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .main-navigation ul {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+  
+  .main-navigation li {
+    width: 100%;
+    border-bottom: 1px solid var(--border-light);
+  }
+  
+  .main-navigation li:last-child {
+    border-bottom: none;
+  }
+  
+  .main-navigation a {
+    padding: var(--space-m);
+    width: 100%;
+  }
+  
+  /* Mobile dropdowns */
+  .main-navigation .sub-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    margin: 0;
+    padding-left: var(--space-l);
+    background: var(--bg-muted);
+  }
+  
+  .main-navigation .menu-item-has-children > a::after {
+    float: right;
+  }
+  
+  /* Mobile CTA */
+  .nav-cta {
+    margin-left: 0;
+    margin-top: var(--space-m);
+    width: 100%;
+  }
+  
+  .nav-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ============================================
+   TABLET
+   ============================================ */
+@media (min-width: 48rem) and (max-width: 64rem) {
+  .main-navigation ul {
+    gap: var(--space-s);
+  }
+  
+  .main-navigation a {
+    font-size: var(--text-s);
+    padding: var(--space-xs);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-l);
+  z-index: 999;
+  background: var(--primary);
+  color: var(--text-on-primary);
+  padding: var(--space-s) var(--space-m);
+  text-decoration: none;
+  border-radius: var(--radius-l);
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: var(--space-m);
+}
+
+/* Focus visible for keyboard navigation */
+.main-navigation a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   UTILITY NAVIGATION (Optional)
+   Top bar with phone, email, etc.
+   ============================================ */
+.utility-navigation {
+  background: var(--bg-body);
+  border-bottom: 1px solid var(--border-light);
+  font-size: var(--text-s);
+}
+
+.utility-navigation .container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-l);
+  padding: var(--space-xs) var(--space-l);
+  max-width: 85.375rem;
+  margin: 0 auto;
+}
+
+.utility-navigation a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  transition: color var(--transition-fast);
+}
+
+.utility-navigation a:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 48rem) {
+  .utility-navigation {
+    display: none;
+  }
+}
+
+/* ============================================
+   SEARCH IN NAVIGATION (Optional)
+   ============================================ */
+.nav-search {
+  display: flex;
+  align-items: center;
+}
+
+.nav-search form {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.nav-search input[type="search"] {
+  padding: var(--space-xs) var(--space-s);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-l);
+  font-size: var(--text-s);
+  width: 12.5rem;
+  transition: all var(--transition-fast);
+}
+
+.nav-search input[type="search"]:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--primary-ultra-light);
+}
+
+@media (max-width: 48rem) {
+  .nav-search {
+    width: 100%;
+    margin-top: var(--space-m);
+  }
+  
+  .nav-search input[type="search"] {
+    width: 100%;
+  }
+}
