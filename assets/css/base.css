@@ -317,3 +317,21 @@ th {
 @media (min-width: 48rem) {
   .desktop-hidden { display: none; }
 }
+
+/* ============================================
+   SINGLE POST LAYOUTS
+   ============================================ */
+.l-container-grid {
+  container-type: inline-size;
+  container-name: layout;
+  display: grid;
+  gap: var(--space-xl);
+  grid-template-columns: 1fr;
+}
+
+@container layout (min-width: 56.25rem) {
+  .l-container-grid {
+    grid-template-columns: 1fr 350px;
+    align-items: start;
+  }
+}
