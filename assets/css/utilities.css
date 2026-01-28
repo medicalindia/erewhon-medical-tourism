@@ -202,18 +202,40 @@
 .m-m { margin: var(--space-m); }
 .m-l { margin: var(--space-l); }
 .m-xl { margin: var(--space-xl); }
+.m-xxl { margin: var(--space-xxl); }
+
+.mx-auto { margin-left: auto; margin-right: auto; }
 
 .mt-xs { margin-top: var(--space-xs); }
 .mt-s { margin-top: var(--space-s); }
 .mt-m { margin-top: var(--space-m); }
 .mt-l { margin-top: var(--space-l); }
 .mt-xl { margin-top: var(--space-xl); }
+.mt-xxl { margin-top: var(--space-xxl); }
 
 .mb-xs { margin-bottom: var(--space-xs); }
 .mb-s { margin-bottom: var(--space-s); }
 .mb-m { margin-bottom: var(--space-m); }
 .mb-l { margin-bottom: var(--space-l); }
 .mb-xl { margin-bottom: var(--space-xl); }
+.mb-xxl { margin-bottom: var(--space-xxl); }
+
+.ml-0 { margin-left: 0; }
+.ml-xs { margin-left: var(--space-xs); }
+.ml-s { margin-left: var(--space-s); }
+.ml-m { margin-left: var(--space-m); }
+.ml-l { margin-left: var(--space-l); }
+.ml-xl { margin-left: var(--space-xl); }
+.ml-xxl { margin-left: var(--space-xxl); }
+
+.mr-0 { margin-right: 0; }
+.mr-xxs { margin-right: var(--space-xxs); }
+.mr-xs { margin-right: var(--space-xs); }
+.mr-s { margin-right: var(--space-s); }
+.mr-m { margin-right: var(--space-m); }
+.mr-l { margin-right: var(--space-l); }
+.mr-xl { margin-right: var(--space-xl); }
+.mr-xxl { margin-right: var(--space-xxl); }
 
 /* Padding */
 .p-0 { padding: 0; }
@@ -222,18 +244,21 @@
 .p-m { padding: var(--space-m); }
 .p-l { padding: var(--space-l); }
 .p-xl { padding: var(--space-xl); }
+.p-xxl { padding: var(--space-xxl); }
 
 .pt-xs { padding-top: var(--space-xs); }
 .pt-s { padding-top: var(--space-s); }
 .pt-m { padding-top: var(--space-m); }
 .pt-l { padding-top: var(--space-l); }
 .pt-xl { padding-top: var(--space-xl); }
+.pt-xxl { padding-top: var(--space-xxl); }
 
 .pb-xs { padding-bottom: var(--space-xs); }
 .pb-s { padding-bottom: var(--space-s); }
 .pb-m { padding-bottom: var(--space-m); }
 .pb-l { padding-bottom: var(--space-l); }
 .pb-xl { padding-bottom: var(--space-xl); }
+.pb-xxl { padding-bottom: var(--space-xxl); }
 
 /* ============================================
    DISPLAY UTILITIES
@@ -243,6 +268,8 @@
 .inline-block { display: inline-block; }
 .inline { display: inline; }
 .hidden { display: none; }
+.align-middle { vertical-align: middle; }
+.col-span-full { grid-column: 1 / -1; }
 
 /* ============================================
    POSITION UTILITIES
@@ -271,6 +298,7 @@
 .h-full { height: 100%; }
 .h-auto { height: auto; }
 .max-w-full { max-width: 100%; }
+.max-w-md { max-width: 42rem; }
 
 /* ============================================
    SPECIAL UTILITIES
@@ -350,6 +378,12 @@
   background: var(--error);
   color: white;
   border-color: var(--error);
+}
+
+.pill--outline {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-default);
 }
 
 /* Hover states */

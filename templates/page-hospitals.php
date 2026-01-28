@@ -13,10 +13,10 @@ get_header();
 	<div class="container">
 		
 		<!-- Page Header -->
-		<header class="page-header" style="margin-bottom: var(--space-xxl); text-align: center;">
-			<h1 style="font-size: var(--h1); margin-bottom: var(--space-m);"><?php the_title(); ?></h1>
+		<header class="page-header text-center mb-xxl">
+			<h1 class="h1 mb-m"><?php the_title(); ?></h1>
 			<?php if ( get_the_content() ) : ?>
-				<div class="page-intro" style="max-width: 42rem; margin: 0 auto; color: var(--text-secondary);">
+				<div class="page-intro mx-auto text-secondary max-w-md">
 					<?php the_content(); ?>
 				</div>
 			<?php endif; ?>
@@ -112,10 +112,10 @@ get_header();
 							<?php endif; ?>
 							
 							<!-- Meta Info -->
-							<div style="display: flex; flex-wrap: wrap; gap: var(--space-l); margin-top: var(--space-m);">
+							<div class="flex flex-wrap gap-l mt-m">
 								<?php if ( $location ) : ?>
 									<div class="card__meta">
-										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="vertical-align: middle;">
+										<svg class="align-middle" width="16" height="16" viewBox="0 0 16 16" fill="none">
 											<path d="M8 8.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" stroke="currentColor" stroke-width="1.5"/>
 											<path d="M13 7c0 3.5-5 7-5 7s-5-3.5-5-7a5 5 0 0110 0z" stroke="currentColor" stroke-width="1.5"/>
 										</svg>
@@ -125,7 +125,7 @@ get_header();
 								
 								<?php if ( $bed_capacity ) : ?>
 									<div class="card__meta">
-										<svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="vertical-align: middle;">
+										<svg class="align-middle" width="16" height="16" viewBox="0 0 16 16" fill="none">
 											<rect x="2" y="7" width="12" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
 											<path d="M4 7V5a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.5"/>
 										</svg>
@@ -136,7 +136,7 @@ get_header();
 							
 							<!-- Specialty Pills -->
 							<?php if ( ! empty( $specialty_pills ) ) : ?>
-								<div style="margin-top: var(--space-m);">
+								<div class="mt-m">
 									<ul class="pills">
 										<?php foreach ( $specialty_pills as $spec ) : ?>
 											<li><span class="pill pill--secondary"><?php echo esc_html( $spec->name ); ?></span></li>
@@ -160,8 +160,8 @@ get_header();
 				wp_reset_postdata();
 			else :
 				?>
-				<div style="text-align: center; padding: var(--space-xxl);">
-					<p style="color: var(--text-secondary); margin-bottom: var(--space-l);">
+				<div class="text-center p-xxl">
+					<p class="text-secondary mb-l">
 						No hospitals found yet.
 					</p>
 					<?php if ( current_user_can( 'edit_posts' ) ) : ?>

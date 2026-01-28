@@ -13,10 +13,10 @@ get_header();
 	<div class="container">
 		
 		<!-- Page Header -->
-		<header class="page-header" style="margin-bottom: var(--space-xxl); text-align: center;">
-			<h1 style="font-size: var(--h1); margin-bottom: var(--space-m);"><?php the_title(); ?></h1>
+		<header class="page-header text-center mb-xxl">
+			<h1 class="h1 mb-m"><?php the_title(); ?></h1>
 			<?php if ( get_the_content() ) : ?>
-				<div class="page-intro" style="max-width: 42rem; margin: 0 auto; color: var(--text-secondary);">
+				<div class="page-intro mx-auto text-secondary max-w-md">
 					<?php the_content(); ?>
 				</div>
 			<?php endif; ?>
@@ -90,11 +90,11 @@ get_header();
 							
 							<!-- Treatment Meta Pills -->
 							<?php if ( $procedure_duration || $recovery_time ) : ?>
-								<ul class="pills" style="margin-top: var(--space-m);">
+								<ul class="pills mt-m">
 									<?php if ( $procedure_duration ) : ?>
 										<li>
 											<span class="pill pill--outline">
-												<svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="vertical-align: middle; margin-right: 4px;">
+												<svg class="align-middle mr-xxs" width="14" height="14" viewBox="0 0 16 16" fill="none">
 													<path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
 													<path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
 												</svg>
@@ -105,7 +105,7 @@ get_header();
 									<?php if ( $recovery_time ) : ?>
 										<li>
 											<span class="pill pill--outline">
-												<svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="vertical-align: middle; margin-right: 4px;">
+												<svg class="align-middle mr-xxs" width="14" height="14" viewBox="0 0 16 16" fill="none">
 													<rect x="2" y="7" width="12" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
 													<path d="M4 7V5a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.5"/>
 												</svg>
@@ -119,7 +119,7 @@ get_header();
 
 						<!-- Footer -->
 						<div class="card__footer">
-							<a href="<?php the_permalink(); ?>" class="btn btn--outline" style="width: 100%;">
+							<a href="<?php the_permalink(); ?>" class="btn btn--outline w-full">
 								Learn More
 							</a>
 						</div>
@@ -131,8 +131,8 @@ get_header();
 				wp_reset_postdata();
 			else :
 				?>
-				<div style="grid-column: 1 / -1; text-align: center; padding: var(--space-xxl);">
-					<p style="color: var(--text-secondary); margin-bottom: var(--space-l);">
+				<div class="col-span-full text-center p-xxl">
+					<p class="text-secondary mb-l">
 						No treatments found yet.
 					</p>
 					<?php if ( current_user_can( 'edit_posts' ) ) : ?>

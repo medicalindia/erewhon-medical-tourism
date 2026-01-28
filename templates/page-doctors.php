@@ -13,10 +13,10 @@ get_header();
 	<div class="container">
 		
 		<!-- Page Header -->
-		<header class="page-header" style="margin-bottom: var(--space-xxl); text-align: center;">
-			<h1 style="font-size: var(--h1); margin-bottom: var(--space-m);"><?php the_title(); ?></h1>
+		<header class="page-header text-center mb-xxl">
+			<h1 class="h1 mb-m"><?php the_title(); ?></h1>
 			<?php if ( get_the_content() ) : ?>
-				<div class="page-intro" style="max-width: 42rem; margin: 0 auto; color: var(--text-secondary);">
+				<div class="page-intro mx-auto text-secondary max-w-md">
 					<?php the_content(); ?>
 				</div>
 			<?php endif; ?>
@@ -136,8 +136,8 @@ get_header();
 							
 							<!-- Experience Badge -->
 							<?php if ( $experience ) : ?>
-								<div class="card__meta" style="margin-top: var(--space-s);">
-									<svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="vertical-align: middle;">
+								<div class="card__meta mt-s">
+									<svg class="align-middle" width="16" height="16" viewBox="0 0 16 16" fill="none">
 										<path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
 										<path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
 									</svg>
@@ -148,7 +148,7 @@ get_header();
 
 						<!-- Footer -->
 						<div class="card__footer">
-							<a href="<?php the_permalink(); ?>" class="btn btn--primary" style="width: 100%;">
+							<a href="<?php the_permalink(); ?>" class="btn btn--primary w-full">
 								View Profile
 							</a>
 						</div>
@@ -160,8 +160,8 @@ get_header();
 				wp_reset_postdata();
 			else :
 				?>
-				<div style="grid-column: 1 / -1; text-align: center; padding: var(--space-xxl);">
-					<p style="color: var(--text-secondary); margin-bottom: var(--space-l);">
+				<div class="col-span-full text-center p-xxl">
+					<p class="text-secondary mb-l">
 						No doctors found yet.
 					</p>
 					<?php if ( current_user_can( 'edit_posts' ) ) : ?>
