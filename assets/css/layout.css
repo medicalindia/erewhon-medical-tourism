@@ -1,0 +1,321 @@
+/**
+ * Erewhon Layout System
+ * ACSS Section/Container Pattern
+ * Kevin Geary Philosophy
+ *
+ * @package Erewhon
+ */
+
+/* ============================================
+   SITE WRAPPER (1920px Max)
+   ============================================ */
+
+.site-wrapper {
+  max-width: var(--site-max-width); /* 1920px */
+  margin-inline: auto;
+  background: var(--bg-body);
+}
+
+/* ============================================
+   SECTION (Full-Width Container)
+   Handles: padding, backgrounds, full-width layouts
+   ============================================ */
+
+.section {
+  width: 100%;
+  padding-block: var(--section-space-m);
+  padding-inline: var(--gutter);
+  position: relative;
+}
+
+/* SPACING VARIANTS */
+.section--s {
+  padding-block: var(--section-space-s);
+}
+
+.section--m {
+  padding-block: var(--section-space-m);
+}
+
+.section--l {
+  padding-block: var(--section-space-l);
+}
+
+.section--xl {
+  padding-block: var(--section-space-xl);
+}
+
+/* PADDING MODIFIERS */
+.section--no-padding {
+  padding: 0;
+}
+
+.section--no-padding-block {
+  padding-block: 0;
+}
+
+.section--no-padding-block-start {
+  padding-block-start: 0;
+}
+
+.section--no-padding-block-end {
+  padding-block-end: 0;
+}
+
+.section--no-gutter {
+  padding-inline: 0;
+}
+
+/* BACKGROUND VARIANTS */
+.section--bg-surface {
+  background-color: var(--bg-surface);
+}
+
+.section--bg-muted {
+  background-color: var(--bg-muted);
+}
+
+.section--bg-primary {
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+}
+
+.section--bg-primary-light {
+  background-color: var(--primary-ultra-light);
+}
+
+.section--bg-gradient {
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--text-on-primary);
+}
+
+.section--bg-overlay {
+  position: relative;
+}
+
+.section--bg-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bg-overlay);
+  z-index: 1;
+}
+
+.section--bg-overlay > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================
+   CONTAINER (Content Constraint)
+   Handles: max-width, centering
+   ============================================ */
+
+.container {
+  max-width: var(--content-width); /* 1366px */
+  margin-inline: auto;
+  width: 100%;
+}
+
+/* WIDTH VARIANTS */
+.container--narrow {
+  max-width: var(--content-width-narrow); /* 960px */
+}
+
+.container--text {
+  max-width: var(--content-width-text); /* 768px */
+}
+
+.container--wide {
+  max-width: var(--content-width-wide); /* 1600px */
+}
+
+.container--full {
+  max-width: none;
+}
+
+/* ============================================
+   CONTAINER GRID (Two-Column Layouts)
+   ============================================ */
+
+.container-grid {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  width: 100%;
+
+  display: grid;
+  gap: var(--grid-gap-l);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .container-grid {
+    grid-template-columns: 1fr 350px;
+  }
+
+  .container-grid--reverse {
+    grid-template-columns: 350px 1fr;
+  }
+
+  .container-grid--sidebar-narrow {
+    grid-template-columns: 1fr 280px;
+  }
+
+  .container-grid--sidebar-wide {
+    grid-template-columns: 1fr 400px;
+  }
+}
+
+/* ============================================
+   FLOW UTILITIES (Gap-Based Spacing)
+   ============================================ */
+
+.flow {
+  display: flex;
+  flex-direction: column;
+}
+
+.flow--content-gap {
+  gap: var(--content-gap);
+}
+
+.flow--content-gap-s {
+  gap: var(--content-gap-s);
+}
+
+.flow--content-gap-l {
+  gap: var(--content-gap-l);
+}
+
+.flow--container-gap {
+  gap: var(--container-gap);
+}
+
+.flow--container-gap-l {
+  gap: var(--container-gap-l);
+}
+
+/* ============================================
+   STACK (Vertical Layouts)
+   ============================================ */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--container-gap);
+}
+
+.stack--s {
+  gap: var(--content-gap);
+}
+
+.stack--m {
+  gap: var(--container-gap);
+}
+
+.stack--l {
+  gap: var(--container-gap-l);
+}
+
+.stack--xl {
+  gap: var(--container-gap-xl);
+}
+
+/* ============================================
+   GRID LAYOUTS
+   ============================================ */
+
+.grid {
+  display: grid;
+  gap: var(--grid-gap-m);
+}
+
+.grid--s {
+  gap: var(--grid-gap-s);
+}
+
+.grid--m {
+  gap: var(--grid-gap-m);
+}
+
+.grid--l {
+  gap: var(--grid-gap-l);
+}
+
+.grid--xl {
+  gap: var(--grid-gap-xl);
+}
+
+/* AUTO-FIT GRIDS */
+.grid--auto-fit-sm {
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+}
+
+.grid--auto-fit-md {
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+
+.grid--auto-fit-lg {
+  grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+}
+
+/* FIXED COLUMN GRIDS */
+.grid--cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--sidebar {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid--sidebar {
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+.grid--cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1023px) {
+  .grid--cols-3,
+  .grid--cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 639px) {
+  .grid--cols-2,
+  .grid--cols-3,
+  .grid--cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   CLUSTER (Inline Layouts)
+   ============================================ */
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--inline-gap);
+  align-items: center;
+}
+
+.cluster--s {
+  gap: var(--space-xs);
+}
+
+.cluster--m {
+  gap: var(--space-m);
+}
+
+.cluster--l {
+  gap: var(--space-l);
+}

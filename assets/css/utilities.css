@@ -1,282 +1,53 @@
-@charset "UTF-8";
 /**
  * Erewhon Utilities
- * Typography + Helper Classes
- * 100% Token-Based
+ * MINIMAL utilities (only what's needed)
+ * Most styling should use components
+ *
+ * @package Erewhon
  */
 
-/* ============================================
-   TYPOGRAPHY UTILITIES
-   ============================================ */
-
-/* Heading classes */
-.h1 {
-  font-size: var(--h1);
-  line-height: 1.1;
-  font-weight: 700;
-  font-family: var(--headline-font);
-  color: var(--text-primary);
-}
-
-.h2 {
-  font-size: var(--h2);
-  line-height: 1.2;
-  font-weight: 700;
-  font-family: var(--headline-font);
-  color: var(--text-primary);
-}
-
-.h3 {
-  font-size: var(--h3);
-  line-height: var(--lh-heading-standard);
-  font-weight: 700;
-  font-family: var(--headline-font);
-  color: var(--text-primary);
-}
-
-.h4 {
-  font-size: var(--h4);
-  line-height: var(--lh-heading-standard);
-  font-weight: 600;
-  font-family: var(--headline-font);
-  color: var(--text-primary);
-}
-
-.h5 {
-  font-size: var(--h5);
-  line-height: var(--lh-heading-standard);
-  font-weight: 600;
-  font-family: var(--headline-font);
-  color: var(--text-primary);
-}
-
-.h6 {
-  font-size: var(--h6);
-  line-height: var(--lh-heading-standard);
-  font-weight: 600;
-  font-family: var(--headline-font);
-  color: var(--text-primary);
-}
-
-/* Text sizes */
-.text-xxs { font-size: var(--text-xxs); }
-.text-xs { font-size: var(--text-xs); }
-.text-s { font-size: var(--text-s); }
-.text-m { font-size: var(--text-m); }
-.text-l { font-size: var(--text-l); }
-.text-xl { font-size: var(--text-xl); }
-.text-xxl { font-size: var(--text-xxl); }
-
-/* Lead paragraph */
-.lead {
-  font-size: var(--text-xl);
-  line-height: var(--lh-text-loose);
-  color: var(--text-primary);
-}
-
-/* Line height */
-.leading-tight { line-height: var(--lh-text-tight); }
-.leading-standard { line-height: var(--lh-text-standard); }
-.leading-loose { line-height: var(--lh-text-loose); }
-
-/* Text width */
-.text-width { max-width: var(--text-max-width); }
-
-/* Font weight */
-.font-normal { font-weight: 400; }
-.font-medium { font-weight: 500; }
-.font-semibold { font-weight: 600; }
-.font-bold { font-weight: 700; }
-
-/* Text alignment */
+/* TEXT ALIGNMENT */
 .text-left { text-align: left; }
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 
-/* Text transform */
-.text-uppercase { text-transform: uppercase; }
-.text-lowercase { text-transform: lowercase; }
-.text-capitalize { text-transform: capitalize; }
-
-/* Text wrapping */
-.text-no-wrap { white-space: nowrap; }
-
-/* Line clamping */
-.line-clamp-1 {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-}
-
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-}
-
-/* ============================================
-   COLOR UTILITIES
-   ============================================ */
-
-/* Text colors */
+/* TEXT COLORS */
 .text-primary { color: var(--text-primary); }
 .text-secondary { color: var(--text-secondary); }
 .text-tertiary { color: var(--text-tertiary); }
 
-/* Status colors */
-.text-success { color: var(--success); }
-.text-error { color: var(--error); }
-.text-warning { color: var(--warning); }
+/* FONT WEIGHT */
+.font-medium { font-weight: 500; }
+.font-bold { font-weight: 700; }
 
-/* Background colors */
-.bg-body { background-color: var(--bg-body); }
-.bg-surface { background-color: var(--bg-surface); }
-.bg-muted { background-color: var(--bg-muted); }
+/* TEXT TRANSFORM */
+.text-uppercase { text-transform: uppercase; }
+.tracking-wide { letter-spacing: 0.05em; }
 
-.bg-primary {
-  background-color: var(--primary);
-  color: var(--text-on-primary);
-}
-
-.bg-secondary {
-  background-color: var(--secondary);
-  color: var(--text-on-secondary);
-}
-
-/* ============================================
-   BORDER UTILITIES
-   ============================================ */
-
-.border { border: 1px solid var(--border-light); }
-.border-top { border-top: 1px solid var(--border-light); }
-.border-bottom { border-bottom: 1px solid var(--border-light); }
-.border-left { border-left: 1px solid var(--border-light); }
-.border-right { border-right: 1px solid var(--border-light); }
-.border-none { border: none; }
-
-/* ============================================
-   SHADOW UTILITIES
-   ============================================ */
-
-.shadow-sm { box-shadow: var(--shadow-sm); }
-.shadow-md { box-shadow: var(--shadow-md); }
-.shadow-lg { box-shadow: var(--shadow-lg); }
-.shadow-xl { box-shadow: var(--shadow-xl); }
-.shadow-none { box-shadow: none; }
-
-/* ============================================
-   RADIUS UTILITIES
-   ============================================ */
-
-.rounded-none { border-radius: 0; }
-.rounded-xs { border-radius: var(--radius-xs); }
-.rounded-s { border-radius: var(--radius-s); }
-.rounded-m { border-radius: var(--radius-m); }
-.rounded-l { border-radius: var(--radius-l); }
-.rounded-xl { border-radius: var(--radius-xl); }
-.rounded-full { border-radius: var(--radius-pill); }
-.rounded-circle { border-radius: var(--radius-circle); }
-
-/* ============================================
-   SPACING UTILITIES
-   ============================================ */
-
-/* Margin */
-.m-0 { margin: 0; }
-.mt-0 { margin-top: 0; }
-.mb-0 { margin-bottom: 0; }
-.ml-0 { margin-left: 0; }
-.mr-0 { margin-right: 0; }
-
-.m-xs { margin: var(--space-xs); }
-.m-s { margin: var(--space-s); }
-.m-m { margin: var(--space-m); }
-.m-l { margin: var(--space-l); }
-.m-xl { margin: var(--space-xl); }
-
-.mt-xs { margin-top: var(--space-xs); }
-.mt-s { margin-top: var(--space-s); }
-.mt-m { margin-top: var(--space-m); }
-.mt-l { margin-top: var(--space-l); }
-.mt-xl { margin-top: var(--space-xl); }
-
-.mb-xs { margin-bottom: var(--space-xs); }
-.mb-s { margin-bottom: var(--space-s); }
-.mb-m { margin-bottom: var(--space-m); }
-.mb-l { margin-bottom: var(--space-l); }
-.mb-xl { margin-bottom: var(--space-xl); }
-
-/* Padding */
-.p-0 { padding: 0; }
-.p-xs { padding: var(--space-xs); }
-.p-s { padding: var(--space-s); }
-.p-m { padding: var(--space-m); }
-.p-l { padding: var(--space-l); }
-.p-xl { padding: var(--space-xl); }
-
-.pt-xs { padding-top: var(--space-xs); }
-.pt-s { padding-top: var(--space-s); }
-.pt-m { padding-top: var(--space-m); }
-.pt-l { padding-top: var(--space-l); }
-.pt-xl { padding-top: var(--space-xl); }
-
-.pb-xs { padding-bottom: var(--space-xs); }
-.pb-s { padding-bottom: var(--space-s); }
-.pb-m { padding-bottom: var(--space-m); }
-.pb-l { padding-bottom: var(--space-l); }
-.pb-xl { padding-bottom: var(--space-xl); }
-
-/* ============================================
-   DISPLAY UTILITIES
-   ============================================ */
-
+/* DISPLAY */
 .block { display: block; }
 .inline-block { display: inline-block; }
-.inline { display: inline; }
 .hidden { display: none; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
 
-/* ============================================
-   POSITION UTILITIES
-   ============================================ */
-
+/* POSITION */
 .relative { position: relative; }
 .absolute { position: absolute; }
-.fixed { position: fixed; }
-.sticky { position: sticky; }
+.top-0 { top: 0; }
+.right-0 { right: 0; }
 
-/* ============================================
-   OVERFLOW UTILITIES
-   ============================================ */
-
-.overflow-hidden { overflow: hidden; }
-.overflow-auto { overflow: auto; }
-.overflow-x-auto { overflow-x: auto; }
-.overflow-y-auto { overflow-y: auto; }
-
-/* ============================================
-   WIDTH & HEIGHT UTILITIES
-   ============================================ */
-
+/* WIDTH & HEIGHT */
 .w-full { width: 100%; }
 .w-auto { width: auto; }
 .h-full { height: 100%; }
 .h-auto { height: auto; }
-.max-w-full { max-width: 100%; }
+.object-cover { object-fit: cover; }
 
-/* ============================================
-   SPECIAL UTILITIES
-   ============================================ */
-
-.visually-hidden {
+/* VISUALLY HIDDEN */
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -288,102 +59,9 @@
   border: 0;
 }
 
-/* ============================================
-   PILL SYSTEM (Universal) - IMPROVED ALIGNMENT
-   Pills, Tags, Badges - One Component
-   ============================================ */
-
-/* Base pill */
-.pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--tag-padding-y) var(--tag-padding-x);
-  font-size: var(--tag-font-size);
-  font-weight: 600;
-  line-height: 1;
-  white-space: nowrap;
-  vertical-align: middle;
-  transition: all var(--transition-fast);
-  border: 1px solid var(--border-light);
-  cursor: default;
-  border-radius: var(--radius-pill);
-  background: var(--bg-muted);
-  color: var(--text-secondary);
-}
-
-/* Shape variants */
-.pill--badge {
-  border-radius: var(--badge-radius);
-}
-
-.pill--tag {
-  border-radius: var(--radius-pill);
-}
-
-/* Color variants */
-.pill--primary {
-  background: var(--primary);
-  color: var(--text-on-primary);
-  border-color: var(--primary);
-}
-
-.pill--secondary {
-  background: var(--secondary);
-  color: var(--text-on-secondary);
-  border-color: var(--secondary);
-}
-
-.pill--success {
-  background: var(--success);
-  color: white;
-  border-color: var(--success);
-}
-
-.pill--warning {
-  background: var(--warning);
-  color: white;
-  border-color: var(--warning);
-}
-
-.pill--error {
-  background: var(--error);
-  color: white;
-  border-color: var(--error);
-}
-
-/* Hover states */
-.pill--default:hover,
-.pill:not([class*="--"]):hover {
-  background: var(--primary-ultra-light);
-  border-color: var(--primary);
-  color: var(--primary);
-}
-
-.pill--primary:hover,
-.pill--secondary:hover,
-.pill--success:hover,
-.pill--warning:hover,
-.pill--error:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
-/* Pills container - IMPROVED */
-.pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--tag-gap);
-  align-items: center;
-  padding: 0;
-  list-style: none;
-  margin: 0;
-}
-
-/* Fix list items */
-.pills li {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
+/* MISC */
+.align-middle { vertical-align: middle; }
+.rounded-l { border-radius: var(--radius-l); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.overflow-hidden { overflow: hidden; }
