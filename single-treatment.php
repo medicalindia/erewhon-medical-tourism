@@ -117,6 +117,51 @@ while ( have_posts() ) :
 		</div>
 
 	</section>
+
+	<!-- Related Treatments -->
+	<?php
+	$related = erewhon_get_related_posts( get_the_ID(), 'treatment', 'specialty', 4 );
+	if ( $related->have_posts() ) :
+	?>
+	<section class="section section--bg-muted">
+		<div class="container">
+			<h2 class="h2 mb-l">Similar Treatments</h2>
+			<div class="grid grid--auto-fit-sm grid--l">
+				<?php
+				while ( $related->have_posts() ) : $related->the_post();
+					$r_data = erewhon_get_treatment_card_data();
+					?>
+					<article class="card card--treatment">
+						<div class="card__media">
+							<img
+								src="<?php echo esc_url( $r_data['image_url'] ); ?>"
+								alt="<?php echo esc_attr( $r_data['title'] ); ?>"
+								class="card__image"
+								loading="lazy"
+							>
+						</div>
+						<div class="card__content">
+							<h3 class="card__heading">
+								<a href="<?php echo esc_url( $r_data['permalink'] ); ?>">
+									<?php echo esc_html( $r_data['title'] ); ?>
+								</a>
+							</h3>
+							<?php if ( $r_data['category'] ) : ?>
+								<div class="card__eyebrow"><?php echo esc_html( $r_data['category'] ); ?></div>
+							<?php endif; ?>
+						</div>
+						<div class="card__footer">
+							<a href="<?php echo esc_url( $r_data['permalink'] ); ?>" class="btn btn--outline btn--block">Learn More</a>
+						</div>
+					</article>
+				<?php
+				endwhile;
+				wp_reset_postdata();
+				?>
+			</div>
+		</div>
+	</section>
+	<?php endif; ?>
 </main>
 
 <?php

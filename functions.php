@@ -170,6 +170,7 @@ $required_files = array(
 	'/inc/template-functions.php',
 	'/inc/customizer.php',
 	'/inc/data-helpers.php',
+	'/inc/seo-helpers.php',
 );
 
 foreach ( $required_files as $file ) {

@@ -180,3 +180,36 @@ function erewhon_get_treatment_card_data( $post_id = null ) {
 		'permalink'          => get_permalink( $post_id ),
 	);
 }
+
+/**
+ * Get Related Posts
+ *
+ * @param int    $post_id   Current post ID.
+ * @param string $post_type Post type to fetch.
+ * @param string $taxonomy  Taxonomy to match.
+ * @param int    $limit     Number of posts.
+ * @return WP_Query
+ */
+function erewhon_get_related_posts( $post_id, $post_type, $taxonomy, $limit = 3 ) {
+	$terms = get_the_terms( $post_id, $taxonomy );
+
+	if ( ! $terms || is_wp_error( $terms ) ) {
+		return new WP_Query(); // Empty query
+	}
+
+	$term_ids = wp_list_pluck( $terms, 'term_id' );
+
+	return new WP_Query( array(
+		'post_type'      => $post_type,
+		'posts_per_page' => $limit,
+		'post__not_in'   => array( $post_id ),
+		'orderby'        => 'rand',
+		'tax_query'      => array(
+			array(
+				'taxonomy' => $taxonomy,
+				'field'    => 'term_id',
+				'terms'    => $term_ids,
+			),
+		),
+	) );
+}

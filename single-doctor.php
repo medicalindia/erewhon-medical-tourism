@@ -108,6 +108,53 @@ while ( have_posts() ) :
 		</div>
 
 	</section>
+
+	<!-- Related Doctors -->
+	<?php
+	$related = erewhon_get_related_posts( get_the_ID(), 'doctor', 'specialty', 3 );
+	if ( $related->have_posts() ) :
+	?>
+	<section class="section section--bg-muted">
+		<div class="container">
+			<h2 class="h2 mb-l">Other Specialists</h2>
+			<div class="grid grid--auto-fit-md grid--l">
+				<?php
+				while ( $related->have_posts() ) : $related->the_post();
+					$r_data = erewhon_get_doctor_card_data();
+					?>
+					<article class="card card--doctor-compact">
+						<div class="card__media">
+							<div class="card__avatar-wrapper">
+								<img
+									src="<?php echo esc_url( $r_data['photo_url'] ); ?>"
+									alt="<?php echo esc_attr( $r_data['full_name'] ); ?>"
+									class="card__avatar"
+									loading="lazy"
+								>
+							</div>
+						</div>
+						<div class="card__content">
+							<h3 class="card__heading">
+								<a href="<?php echo esc_url( $r_data['permalink'] ); ?>">
+									<?php echo esc_html( $r_data['full_name'] ); ?>
+								</a>
+							</h3>
+							<?php if ( $r_data['specialty_name'] ) : ?>
+								<div class="card__eyebrow"><?php echo esc_html( $r_data['specialty_name'] ); ?></div>
+							<?php endif; ?>
+						</div>
+						<div class="card__footer">
+							<a href="<?php echo esc_url( $r_data['permalink'] ); ?>" class="btn btn--outline btn--block">View Profile</a>
+						</div>
+					</article>
+				<?php
+				endwhile;
+				wp_reset_postdata();
+				?>
+			</div>
+		</div>
+	</section>
+	<?php endif; ?>
 </main>
 
 <?php

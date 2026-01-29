@@ -127,6 +127,49 @@ while ( have_posts() ) :
 		</div>
 
 	</section>
+
+	<!-- Related Hospitals -->
+	<?php
+	$related = erewhon_get_related_posts( get_the_ID(), 'hospital', 'destination', 3 );
+	if ( $related->have_posts() ) :
+	?>
+	<section class="section section--bg-muted">
+		<div class="container">
+			<h2 class="h2 mb-l">Other Hospitals in <?php echo esc_html( $data['location'] ); ?></h2>
+			<div class="grid grid--auto-fit-md grid--l">
+				<?php
+				while ( $related->have_posts() ) : $related->the_post();
+					$r_data = erewhon_get_hospital_card_data();
+					?>
+					<article class="card card--hospital">
+						<div class="card__media">
+							<img
+								src="<?php echo esc_url( $r_data['image_url'] ); ?>"
+								alt="<?php echo esc_attr( $r_data['title'] ); ?>"
+								class="card__image"
+								loading="lazy"
+							>
+						</div>
+						<div class="card__content">
+							<h3 class="card__heading">
+								<a href="<?php echo esc_url( $r_data['permalink'] ); ?>">
+									<?php echo esc_html( $r_data['title'] ); ?>
+								</a>
+							</h3>
+							<p class="text-s text-secondary line-clamp-2"><?php echo esc_html( strip_tags( $r_data['bio_short'] ) ); ?></p>
+						</div>
+						<div class="card__footer">
+							<a href="<?php echo esc_url( $r_data['permalink'] ); ?>" class="btn btn--outline btn--block">View Details</a>
+						</div>
+					</article>
+				<?php
+				endwhile;
+				wp_reset_postdata();
+				?>
+			</div>
+		</div>
+	</section>
+	<?php endif; ?>
 </main>
 
 <?php
