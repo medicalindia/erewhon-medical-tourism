@@ -39,9 +39,9 @@ body {
 }
 
 body {
-  font-family: var(--body-font);
+  font-family: var(--font-body);
   font-size: var(--text-m);
-  line-height: var(--lh-text-standard);
+  line-height: var(--lh-standard);
   color: var(--text-primary);
   background: var(--bg-body);
   overflow-x: hidden;
@@ -52,9 +52,9 @@ body {
    ============================================ */
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 0.75em 0;
-  font-family: var(--headline-font);
+  font-family: var(--font-heading);
   font-weight: 700;
-  line-height: var(--lh-heading-standard);
+  line-height: var(--lh-heading);
   color: var(--text-primary);
 }
 
@@ -316,22 +316,4 @@ th {
 
 @media (min-width: 48rem) {
   .desktop-hidden { display: none; }
-}
-
-/* ============================================
-   SINGLE POST LAYOUTS
-   ============================================ */
-.l-container-grid {
-  container-type: inline-size;
-  container-name: layout;
-  display: grid;
-  gap: var(--space-xl);
-  grid-template-columns: 1fr;
-}
-
-@container layout (min-width: 56.25rem) {
-  .l-container-grid {
-    grid-template-columns: 1fr 350px;
-    align-items: start;
-  }
 }
