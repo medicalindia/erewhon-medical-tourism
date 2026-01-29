@@ -83,44 +83,12 @@ function erewhon_scripts() {
 		array(), 
 		$version 
 	);
-	
-	// 2. Design tokens
+
+	// 2. Main Stylesheet (Handles imports of tokens, base, layout, components, utilities)
 	wp_enqueue_style( 
-		'erewhon-tokens', 
-		$css_uri . '01-tokens.css',
-		array(), 
-		$version 
-	);
-	
-	// 3. Base styles
-	wp_enqueue_style( 
-		'erewhon-base', 
-		$css_uri . '02-base.css',
-		array( 'erewhon-fonts', 'erewhon-tokens' ), 
-		$version 
-	);
-	
-	// 4. Layout
-	wp_enqueue_style( 
-		'erewhon-layout',
-		$css_uri . '03-layout.css',
-		array( 'erewhon-base' ),
-		$version 
-	);
-	
-	// 5. Components
-	wp_enqueue_style( 
-		'erewhon-components',
-		$css_uri . '04-components.css',
-		array( 'erewhon-layout' ),
-		$version 
-	);
-	
-	// 6. Utilities
-	wp_enqueue_style( 
-		'erewhon-utilities',
-		$css_uri . '05-utilities.css',
-		array( 'erewhon-components' ),
+		'erewhon-style',
+		get_stylesheet_uri(),
+		array( 'erewhon-fonts' ),
 		$version 
 	);
 	
