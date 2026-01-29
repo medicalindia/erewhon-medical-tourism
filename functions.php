@@ -87,45 +87,40 @@ function erewhon_scripts() {
 	// 2. Design tokens
 	wp_enqueue_style( 
 		'erewhon-tokens', 
-		$css_uri . 'tokens.css', 
+		$css_uri . '01-tokens.css',
 		array(), 
 		$version 
 	);
 	
-	// 3. Base styles (depends on fonts + tokens)
+	// 3. Base styles
 	wp_enqueue_style( 
 		'erewhon-base', 
-		$css_uri . 'base.css', 
+		$css_uri . '02-base.css',
 		array( 'erewhon-fonts', 'erewhon-tokens' ), 
 		$version 
 	);
 	
-	// 4. Component styles
+	// 4. Layout
 	wp_enqueue_style( 
-		'erewhon-utilities', 
-		$css_uri . 'utilities.css', 
-		array( 'erewhon-tokens' ), 
+		'erewhon-layout',
+		$css_uri . '03-layout.css',
+		array( 'erewhon-base' ),
 		$version 
 	);
 	
+	// 5. Components
 	wp_enqueue_style( 
-		'erewhon-navigation', 
-		$css_uri . 'navigation.css', 
-		array( 'erewhon-tokens' ), 
+		'erewhon-components',
+		$css_uri . '04-components.css',
+		array( 'erewhon-layout' ),
 		$version 
 	);
 	
+	// 6. Utilities
 	wp_enqueue_style( 
-		'erewhon-button', 
-		$css_uri . 'button.css', 
-		array( 'erewhon-tokens' ), 
-		$version 
-	);
-	
-	wp_enqueue_style( 
-		'erewhon-cards', 
-		$css_uri . 'cards.css', 
-		array( 'erewhon-tokens' ), 
+		'erewhon-utilities',
+		$css_uri . '05-utilities.css',
+		array( 'erewhon-components' ),
 		$version 
 	);
 	

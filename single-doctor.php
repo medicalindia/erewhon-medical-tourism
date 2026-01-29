@@ -7,25 +7,27 @@
 
 get_header();
 
-// Get doctor data using helper
-$data = erewhon_get_doctor_card_data();
-?>
+while ( have_posts() ) :
+	the_post();
+
+	// Get doctor data using helper
+	$data = erewhon_get_doctor_card_data();
+	?>
 
 <main id="primary" class="site-main">
-	<div class="container">
-
-		<div class="l-container-grid">
+	<section class="section">
+		<div class="container-grid container-grid--sidebar-wide">
 
 			<!-- Main Content -->
-			<div class="content-area">
-				<header class="page-header mb-xl">
+			<div class="flow flow--container-gap">
+				<header>
 					<?php if ( $data['specialty_name'] ) : ?>
-						<div class="text-primary font-bold text-uppercase mb-xs" style="letter-spacing: 0.05em;">
+						<div class="text-primary font-bold text-uppercase tracking-wide mb-xs">
 							<?php echo esc_html( $data['specialty_name'] ); ?>
 						</div>
 					<?php endif; ?>
 
-					<h1 class="h1 mb-m"><?php the_title(); ?></h1>
+					<h1 class="h1"><?php the_title(); ?></h1>
 
 					<?php if ( $data['experience'] ) : ?>
 						<div class="flex items-center gap-s text-secondary">
@@ -38,24 +40,23 @@ $data = erewhon_get_doctor_card_data();
 					<?php endif; ?>
 				</header>
 
-				<div class="page-content">
+				<div class="flow flow--container-gap">
 					<!-- Photo & Bio -->
-					<div class="flex flex-wrap gap-l mb-xl">
-						<div style="flex: 0 0 200px;">
+					<div class="grid grid--sidebar gap-l">
+						<div>
 							<img
 								src="<?php echo esc_url( $data['photo_url'] ); ?>"
 								alt="<?php echo esc_attr( $data['full_name'] ); ?>"
-								class="rounded-l shadow-md"
-								style="width: 100%; height: auto;"
+								class="rounded-l shadow-md w-full h-auto object-cover"
 							>
 						</div>
-						<div style="flex: 1; min-width: 300px;">
-							<div class="lead mb-m">
+						<div class="flow flow--content-gap">
+							<div class="text-l text-secondary">
 								<?php echo esc_html( $data['bio_short'] ); ?>
 							</div>
 
 							<?php if ( ! empty( $data['specialty_pills'] ) ) : ?>
-								<div class="mb-m">
+								<div>
 									<strong class="block mb-s text-s text-secondary">Specialties</strong>
 									<ul class="pills">
 										<?php foreach ( $data['specialty_pills'] as $spec ) : ?>
@@ -68,17 +69,17 @@ $data = erewhon_get_doctor_card_data();
 					</div>
 
 					<!-- Main Body -->
-					<div class="stack-m">
+					<div class="stack stack--m">
 						<?php the_content(); ?>
 					</div>
 				</div>
 			</div>
 
 			<!-- Sidebar Action Card -->
-			<aside class="sidebar-area">
+			<aside>
 				<div class="card card--action">
 					<h3 class="card__heading">Interested in a consultation?</h3>
-					<p class="text-secondary text-s">
+					<p class="text-secondary text-m">
 						Contact us to schedule an appointment with <?php echo esc_html( $data['full_name'] ); ?>.
 					</p>
 
@@ -88,7 +89,7 @@ $data = erewhon_get_doctor_card_data();
 					$contact_url = '/contact/?subject=' . urlencode( $subject );
 					?>
 
-					<a href="<?php echo esc_url( $contact_url ); ?>" class="btn btn--primary">
+					<a href="<?php echo esc_url( $contact_url ); ?>" class="btn btn--primary btn--block">
 						Inquiry about <?php echo esc_html( $specialty ); ?>
 					</a>
 
@@ -106,8 +107,9 @@ $data = erewhon_get_doctor_card_data();
 
 		</div>
 
-	</div>
+	</section>
 </main>
 
 <?php
+endwhile;
 get_footer();

@@ -7,27 +7,29 @@
 
 get_header();
 
-// Get hospital data using helper
-$data = erewhon_get_hospital_card_data();
-?>
+while ( have_posts() ) :
+	the_post();
+
+	// Get hospital data using helper
+	$data = erewhon_get_hospital_card_data();
+	?>
 
 <main id="primary" class="site-main">
-	<div class="container">
-
-		<div class="l-container-grid">
+	<section class="section">
+		<div class="container-grid container-grid--sidebar-wide">
 
 			<!-- Main Content -->
-			<div class="content-area">
-				<header class="page-header mb-xl">
+			<div class="flow flow--container-gap">
+				<header>
 					<?php if ( $data['type_label'] ) : ?>
-						<div class="text-primary font-bold text-uppercase mb-xs" style="letter-spacing: 0.05em;">
+						<div class="text-primary font-bold text-uppercase tracking-wide mb-xs">
 							<?php echo esc_html( $data['type_label'] ); ?>
 						</div>
 					<?php endif; ?>
 
-					<h1 class="h1 mb-m"><?php the_title(); ?></h1>
+					<h1 class="h1"><?php the_title(); ?></h1>
 
-					<div class="flex flex-wrap gap-l text-secondary">
+					<div class="cluster cluster--l text-secondary">
 						<?php if ( $data['location'] ) : ?>
 							<div class="flex items-center gap-s">
 								<svg class="align-middle" width="18" height="18" viewBox="0 0 16 16" fill="none">
@@ -50,27 +52,27 @@ $data = erewhon_get_hospital_card_data();
 					</div>
 				</header>
 
-				<div class="page-content">
+				<div class="flow flow--container-gap">
 					<!-- Featured Image -->
-					<div class="mb-xl relative rounded-xl overflow-hidden shadow-md">
+					<div class="relative rounded-xl overflow-hidden shadow-md">
 						<img
 							src="<?php echo esc_url( $data['image_url'] ); ?>"
 							alt="<?php echo esc_attr( $data['title'] ); ?>"
-							style="width: 100%; height: auto; max-height: 500px; object-fit: cover;"
+							class="w-full h-auto object-cover"
 						>
 						<?php if ( $data['badge'] ) : ?>
-							<span class="absolute top-0 right-0 m-m bg-success text-white font-bold text-xs uppercase px-s py-xs rounded-l">
+							<span class="absolute top-0 right-0 m-m pill pill--success text-uppercase">
 								<?php echo esc_html( $data['badge'] ); ?> Accredited
 							</span>
 						<?php endif; ?>
 					</div>
 
-					<div class="lead mb-l">
+					<div class="text-l text-secondary">
 						<?php echo esc_html( $data['bio_short'] ); ?>
 					</div>
 
 					<?php if ( ! empty( $data['specialty_pills'] ) ) : ?>
-						<div class="mb-xl">
+						<div>
 							<strong class="block mb-s text-s text-secondary">Key Specialties</strong>
 							<ul class="pills">
 								<?php foreach ( $data['specialty_pills'] as $spec ) : ?>
@@ -81,17 +83,17 @@ $data = erewhon_get_hospital_card_data();
 					<?php endif; ?>
 
 					<!-- Main Body -->
-					<div class="stack-m">
+					<div class="stack stack--m">
 						<?php the_content(); ?>
 					</div>
 				</div>
 			</div>
 
 			<!-- Sidebar Action Card -->
-			<aside class="sidebar-area">
+			<aside>
 				<div class="card card--action">
 					<h3 class="card__heading">Book a Consultation</h3>
-					<p class="text-secondary text-s">
+					<p class="text-secondary text-m">
 						Get more information about treatments at <?php echo esc_html( $data['title'] ); ?>.
 					</p>
 
@@ -106,7 +108,7 @@ $data = erewhon_get_hospital_card_data();
 					$contact_url = '/contact/?subject=' . urlencode( $subject );
 					?>
 
-					<a href="<?php echo esc_url( $contact_url ); ?>" class="btn btn--primary">
+					<a href="<?php echo esc_url( $contact_url ); ?>" class="btn btn--primary btn--block">
 						Inquiry about <?php echo esc_html( $primary_specialty ); ?>
 					</a>
 
@@ -124,8 +126,9 @@ $data = erewhon_get_hospital_card_data();
 
 		</div>
 
-	</div>
+	</section>
 </main>
 
 <?php
+endwhile;
 get_footer();

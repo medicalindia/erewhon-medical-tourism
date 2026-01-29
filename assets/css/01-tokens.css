@@ -1,0 +1,276 @@
+/**
+ * Erewhon Design Tokens
+ * Professional-grade color system with variants
+ * ACSS-compliant spacing and layout tokens
+ *
+ * @package Erewhon
+ */
+
+:root {
+  /* ============================================
+     COLOR SYSTEM - EXPANDED
+     ============================================ */
+
+  /* PRIMARY PALETTE */
+  --primary: oklch(47% 0.168 245);
+  --primary-hover: oklch(52% 0.175 245);
+  --primary-dark: oklch(38% 0.155 245);
+  --primary-ultra-dark: oklch(28% 0.140 245);
+  --primary-light: oklch(84% 0.092 245);
+  --primary-ultra-light: oklch(95% 0.035 245);
+
+  /* PRIMARY TRANSPARENCY (for overlays) */
+  --primary-trans-10: oklch(47% 0.168 245 / 0.1);
+  --primary-trans-20: oklch(47% 0.168 245 / 0.2);
+  --primary-trans-30: oklch(47% 0.168 245 / 0.3);
+  --primary-trans-50: oklch(47% 0.168 245 / 0.5);
+  --primary-trans-70: oklch(47% 0.168 245 / 0.7);
+  --primary-trans-90: oklch(47% 0.168 245 / 0.9);
+
+  /* SECONDARY PALETTE */
+  --secondary: oklch(67% 0.158 175);
+  --secondary-hover: oklch(72% 0.165 175);
+  --secondary-dark: oklch(57% 0.145 175);
+  --secondary-ultra-dark: oklch(47% 0.130 175);
+  --secondary-light: oklch(85% 0.090 175);
+  --secondary-ultra-light: oklch(95% 0.040 175);
+
+  /* SECONDARY TRANSPARENCY */
+  --secondary-trans-10: oklch(67% 0.158 175 / 0.1);
+  --secondary-trans-20: oklch(67% 0.158 175 / 0.2);
+  --secondary-trans-50: oklch(67% 0.158 175 / 0.5);
+  --secondary-trans-90: oklch(67% 0.158 175 / 0.9);
+
+  /* SUCCESS PALETTE */
+  --success: oklch(63% 0.142 145);
+  --success-dark: oklch(53% 0.130 145);
+  --success-ultra-dark: oklch(43% 0.115 145);
+  --success-light: oklch(85% 0.080 145);
+  --success-ultra-light: oklch(95% 0.035 145);
+
+  /* WARNING PALETTE */
+  --warning: oklch(76% 0.135 88);
+  --warning-dark: oklch(66% 0.125 88);
+  --warning-ultra-dark: oklch(56% 0.110 88);
+  --warning-light: oklch(88% 0.075 88);
+  --warning-ultra-light: oklch(96% 0.030 88);
+
+  /* ERROR PALETTE */
+  --error: oklch(58% 0.185 25);
+  --error-dark: oklch(48% 0.170 25);
+  --error-ultra-dark: oklch(38% 0.150 25);
+  --error-light: oklch(85% 0.095 25);
+  --error-ultra-light: oklch(95% 0.040 25);
+
+  /* TEXT COLORS */
+  --text-primary: oklch(16% 0.014 245);
+  --text-secondary: oklch(42% 0.020 245);
+  --text-tertiary: oklch(56% 0.026 245);
+  --text-quaternary: oklch(70% 0.015 245);
+  --text-on-primary: oklch(99.8% 0.001 245);
+  --text-on-secondary: oklch(99.8% 0.001 175);
+  --text-on-dark: oklch(99.8% 0.001 245);
+
+  /* BACKGROUND COLORS */
+  --bg-body: oklch(99.3% 0.002 245);
+  --bg-surface: oklch(100% 0 0);
+  --bg-muted: oklch(93.5% 0.008 245);
+  --bg-hover: oklch(96% 0.005 245);
+
+  /* BACKGROUND TRANSPARENCY */
+  --bg-overlay: oklch(16% 0.014 245 / 0.5);
+  --bg-overlay-light: oklch(16% 0.014 245 / 0.3);
+  --bg-overlay-heavy: oklch(16% 0.014 245 / 0.7);
+
+  /* BORDER COLORS */
+  --border-light: oklch(88% 0.009 245);
+  --border-default: oklch(78% 0.012 245);
+  --border-strong: oklch(68% 0.015 245);
+
+  /* ============================================
+     SPACING SCALE (Base Scale)
+     ============================================ */
+
+  --space-xxs: 0.25rem;   /* 4px */
+  --space-xs: 0.5rem;     /* 8px */
+  --space-s: 0.75rem;     /* 12px */
+  --space-m: 1rem;        /* 16px */
+  --space-l: 1.5rem;      /* 24px */
+  --space-xl: 2rem;       /* 32px */
+  --space-xxl: 3rem;      /* 48px */
+  --space-xxxl: 4rem;     /* 64px */
+  --space-xxxxl: 6rem;    /* 96px */
+
+  /* ============================================
+     GAP TOKENS (ACSS Philosophy)
+     ============================================ */
+
+  /* CONTENT GAP: Within content blocks */
+  --content-gap: var(--space-s);
+  --content-gap-s: var(--space-xs);
+  --content-gap-l: var(--space-m);
+
+  /* CONTAINER GAP: Between major sections */
+  --container-gap: var(--space-l);
+  --container-gap-l: var(--space-xl);
+  --container-gap-xl: var(--space-xxl);
+
+  /* SEMANTIC GAPS (Intentional imperfection) */
+  --gap-eyebrow-heading: var(--space-xs);     /* 8px - tight */
+  --gap-heading-body: var(--space-m);         /* 16px - medium */
+  --gap-section-section: var(--space-l);      /* 24px - loose */
+
+  /* GRID GAPS */
+  --grid-gap-s: var(--space-m);
+  --grid-gap-m: var(--space-l);
+  --grid-gap-l: var(--space-xl);
+  --grid-gap-xl: var(--space-xxl);
+
+  /* INLINE GAPS */
+  --inline-gap: var(--space-xs);
+  --button-gap: var(--space-s);
+
+  /* ============================================
+     LAYOUT CONSTRAINTS
+     ============================================ */
+
+  /* SITE WRAPPER: Maximum site width */
+  --site-max-width: 120rem;  /* 1920px */
+
+  /* CONTENT WIDTHS: Constrained content areas */
+  --content-width: 85.375rem;       /* 1366px - Main content */
+  --content-width-narrow: 60rem;    /* 960px - Text-heavy */
+  --content-width-text: 48rem;      /* 768px - Reading optimal */
+  --content-width-wide: 100rem;     /* 1600px - Dashboards */
+
+  /* ============================================
+     SECTION SPACING (Vertical Rhythm)
+     ============================================ */
+
+  --section-space-s: clamp(2rem, 3vw + 1rem, 3rem);
+  /* Mobile: 32px → Desktop: 48px */
+
+  --section-space-m: clamp(3rem, 5vw + 1rem, 5rem);
+  /* Mobile: 48px → Desktop: 80px */
+
+  --section-space-l: clamp(5rem, 8vw + 1rem, 8rem);
+  /* Mobile: 80px → Desktop: 128px */
+
+  --section-space-xl: clamp(6rem, 10vw + 2rem, 10rem);
+  /* Mobile: 96px → Desktop: 160px */
+
+  /* ============================================
+     GUTTER (Horizontal Edge Protection)
+     ============================================ */
+
+  --gutter: clamp(1rem, 3vw, 2rem);
+  /* Mobile: 16px → Desktop: 32px */
+
+  --gutter-l: clamp(1.5rem, 4vw, 3rem);
+  /* Mobile: 24px → Desktop: 48px */
+
+  /* ============================================
+     TYPOGRAPHY SCALE
+     ============================================ */
+
+  /* Font families */
+  --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+
+  /* Headings */
+  --h1: clamp(2.25rem, 4vw + 1rem, 3.75rem);   /* 36-60px */
+  --h2: clamp(1.875rem, 3vw + 1rem, 3rem);     /* 30-48px */
+  --h3: clamp(1.5rem, 2.5vw + 0.5rem, 2.25rem); /* 24-36px */
+  --h4: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);  /* 20-28px */
+  --h5: clamp(1.125rem, 1.5vw + 0.5rem, 1.5rem); /* 18-24px */
+  --h6: 1.125rem;                                 /* 18px */
+
+  /* Body text */
+  --text-xxs: 0.625rem;  /* 10px */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-s: 0.875rem;    /* 14px */
+  --text-m: 1rem;        /* 16px */
+  --text-l: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-xxl: 1.5rem;    /* 24px */
+
+  /* Line heights */
+  --lh-tight: 1.1;
+  --lh-heading: 1.2;
+  --lh-standard: 1.5;
+  --lh-loose: 1.75;
+
+  /* Letter spacing */
+  --ls-tight: -0.02em;
+  --ls-normal: 0;
+  --ls-wide: 0.05em;
+
+  /* ============================================
+     BORDER RADIUS
+     ============================================ */
+
+  --radius-none: 0;
+  --radius-xs: 0.25rem;   /* 4px */
+  --radius-s: 0.375rem;   /* 6px */
+  --radius-m: 0.5rem;     /* 8px */
+  --radius-l: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-xxl: 1.5rem;   /* 24px */
+  --radius-pill: 9999px;
+  --radius-circle: 50%;
+
+  /* ============================================
+     SHADOWS
+     ============================================ */
+
+  --shadow-color: oklch(22% 0.012 245);
+
+  --shadow-xs: 0 1px 2px var(--shadow-color / 0.06);
+  --shadow-sm: 0 1px 3px var(--shadow-color / 0.08);
+  --shadow-md: 0 4px 6px var(--shadow-color / 0.10);
+  --shadow-lg: 0 10px 15px var(--shadow-color / 0.12);
+  --shadow-xl: 0 20px 25px var(--shadow-color / 0.15);
+  --shadow-xxl: 0 25px 50px var(--shadow-color / 0.20);
+
+  --shadow-inner: inset 0 2px 4px var(--shadow-color / 0.06);
+
+  /* ============================================
+     TRANSITIONS
+     ============================================ */
+
+  --transition-instant: 100ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slowest: 600ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Easing functions */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ============================================
+     Z-INDEX SCALE
+     ============================================ */
+
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-fixed: 1200;
+  --z-modal-backdrop: 1300;
+  --z-modal: 1400;
+  --z-popover: 1500;
+  --z-tooltip: 1600;
+
+  /* ============================================
+     BREAKPOINTS (Reference only - use in media queries)
+     ============================================ */
+
+  /* Mobile-first approach */
+  /* sm: 640px */
+  /* md: 768px */
+  /* lg: 1024px */
+  /* xl: 1280px */
+  /* xxl: 1536px */
+}

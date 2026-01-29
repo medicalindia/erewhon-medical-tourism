@@ -7,46 +7,48 @@
 
 get_header();
 
-// Get treatment data using helper
-$data = erewhon_get_treatment_card_data();
-?>
+while ( have_posts() ) :
+	the_post();
+
+	// Get treatment data using helper
+	$data = erewhon_get_treatment_card_data();
+	?>
 
 <main id="primary" class="site-main">
-	<div class="container">
-
-		<div class="l-container-grid">
+	<section class="section">
+		<div class="container-grid container-grid--sidebar-wide">
 
 			<!-- Main Content -->
-			<div class="content-area">
-				<header class="page-header mb-xl">
+			<div class="flow flow--container-gap">
+				<header>
 					<?php if ( $data['category'] ) : ?>
-						<div class="text-primary font-bold text-uppercase mb-xs" style="letter-spacing: 0.05em;">
+						<div class="text-primary font-bold text-uppercase tracking-wide mb-xs">
 							<?php echo esc_html( $data['category'] ); ?>
 						</div>
 					<?php endif; ?>
 
-					<h1 class="h1 mb-m"><?php the_title(); ?></h1>
+					<h1 class="h1"><?php the_title(); ?></h1>
 
 					<?php if ( $data['bio_short'] ) : ?>
-						<div class="lead text-secondary max-w-md">
+						<div class="text-l text-secondary max-w-md">
 							<?php echo esc_html( $data['bio_short'] ); ?>
 						</div>
 					<?php endif; ?>
 				</header>
 
-				<div class="page-content">
+				<div class="flow flow--container-gap">
 					<!-- Featured Image -->
-					<div class="mb-xl relative rounded-xl overflow-hidden shadow-md">
+					<div class="relative rounded-xl overflow-hidden shadow-md">
 						<img
 							src="<?php echo esc_url( $data['image_url'] ); ?>"
 							alt="<?php echo esc_attr( $data['title'] ); ?>"
-							style="width: 100%; height: auto; max-height: 400px; object-fit: cover;"
+							class="w-full h-auto object-cover"
 						>
 					</div>
 
 					<!-- Key Stats -->
 					<?php if ( $data['procedure_duration'] || $data['recovery_time'] ) : ?>
-						<div class="grid grid-2 gap-m mb-xl p-m bg-surface border rounded-l">
+						<div class="grid grid--cols-2 grid--m p-m bg-surface border rounded-l">
 							<?php if ( $data['procedure_duration'] ) : ?>
 								<div class="flex items-start gap-s">
 									<svg class="text-primary mt-xs" width="20" height="20" viewBox="0 0 16 16" fill="none">
@@ -76,17 +78,17 @@ $data = erewhon_get_treatment_card_data();
 					<?php endif; ?>
 
 					<!-- Main Body -->
-					<div class="stack-m">
+					<div class="stack stack--m">
 						<?php the_content(); ?>
 					</div>
 				</div>
 			</div>
 
 			<!-- Sidebar Action Card -->
-			<aside class="sidebar-area">
+			<aside>
 				<div class="card card--action">
 					<h3 class="card__heading">Get a Quote</h3>
-					<p class="text-secondary text-s">
+					<p class="text-secondary text-m">
 						Find out the cost and details for <?php echo esc_html( $data['title'] ); ?>.
 					</p>
 
@@ -96,7 +98,7 @@ $data = erewhon_get_treatment_card_data();
 					$contact_url = '/contact/?subject=' . urlencode( $subject );
 					?>
 
-					<a href="<?php echo esc_url( $contact_url ); ?>" class="btn btn--primary">
+					<a href="<?php echo esc_url( $contact_url ); ?>" class="btn btn--primary btn--block">
 						Inquiry about <?php echo esc_html( $specialty ); ?>
 					</a>
 
@@ -114,8 +116,9 @@ $data = erewhon_get_treatment_card_data();
 
 		</div>
 
-	</div>
+	</section>
 </main>
 
 <?php
+endwhile;
 get_footer();

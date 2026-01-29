@@ -4,7 +4,7 @@ Theme URI: https://erewhon.in
 Author: Ranjith kumar
 Author URI: https://www.linkedin.com/in/businesswonk/
 Description: Medical tourism custom theme
-Version: 1.0.0
+Version: 2.0.0
 Tested up to: 6.4
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -15,4 +15,9 @@ Tags: medical, custom, tourism
 This theme, like WordPress, is licensed under the GPL.
 */
 
-/* All styles loaded via assets/css/ */
+/* Import order matters! */
+@import url('assets/css/01-tokens.css');
+@import url('assets/css/02-base.css');
+@import url('assets/css/03-layout.css');
+@import url('assets/css/04-components.css');
+@import url('assets/css/05-utilities.css');
