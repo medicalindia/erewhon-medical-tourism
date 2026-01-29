@@ -19,7 +19,7 @@
   --primary-light: oklch(84% 0.092 245);
   --primary-ultra-light: oklch(95% 0.035 245);
 
-  /* PRIMARY TRANSPARENCY (for overlays) */
+  /* PRIMARY TRANSPARENCY */
   --primary-trans-10: oklch(47% 0.168 245 / 0.1);
   --primary-trans-20: oklch(47% 0.168 245 / 0.2);
   --primary-trans-30: oklch(47% 0.168 245 / 0.3);
@@ -27,7 +27,7 @@
   --primary-trans-70: oklch(47% 0.168 245 / 0.7);
   --primary-trans-90: oklch(47% 0.168 245 / 0.9);
 
-  /* SECONDARY PALETTE - Corrected Base: oklch(45% 0.142 15) */
+  /* SECONDARY PALETTE - Base: oklch(45% 0.142 15) */
   --secondary: oklch(45% 0.142 15);
   --secondary-hover: oklch(50% 0.148 15);
   --secondary-dark: oklch(35% 0.130 15);
@@ -109,24 +109,20 @@
   --bg-overlay-heavy: oklch(16% 0.014 245 / 0.7);
 
   /* GRADIENT SYSTEM */
-  /* PRIMARY GRADIENTS */
   --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   --gradient-primary-subtle: linear-gradient(135deg, var(--primary-ultra-light) 0%, var(--bg-surface) 100%);
   --gradient-primary-radial: radial-gradient(circle at top right, var(--primary-trans-20), transparent 70%);
 
-  /* MEDICAL-SPECIFIC GRADIENTS */
   --gradient-trust: linear-gradient(135deg, var(--primary) 0%, oklch(52% 0.145 195) 100%);
   --gradient-health: linear-gradient(135deg, var(--success) 0%, oklch(70% 0.130 160) 100%);
   --gradient-care: linear-gradient(135deg, var(--secondary) 0%, oklch(60% 0.125 35) 100%);
 
-  /* OVERLAY GRADIENTS */
   --gradient-overlay-dark: linear-gradient(180deg, transparent 0%, var(--bg-overlay-heavy) 100%);
   --gradient-overlay-light: linear-gradient(180deg, var(--bg-overlay-light) 0%, transparent 100%);
   --gradient-mesh: radial-gradient(at 40% 20%, var(--primary-trans-10) 0px, transparent 50%),
                    radial-gradient(at 80% 0%, var(--secondary-trans-10) 0px, transparent 50%),
                    radial-gradient(at 0% 50%, oklch(63% 0.142 145 / 0.1) 0px, transparent 50%);
 
-  /* SHIMMER EFFECT */
   --gradient-shimmer: linear-gradient(90deg, transparent 0%, var(--bg-hover) 20%, var(--bg-hover) 60%, transparent 100%);
 
   /* BORDER COLORS */
@@ -135,7 +131,7 @@
   --border-strong: oklch(68% 0.015 245);
 
   /* ============================================
-     LAYOUT TOKENS (Updated Philosophy)
+     LAYOUT TOKENS
      ============================================ */
 
   --site-max-width: 120rem;  /* 1920px */
@@ -146,7 +142,7 @@
 
   --section-padding-block: var(--section-space-m);
   --gutter: clamp(1rem, calc(17.3913043478vw + -2.9130434783rem), 5rem);
-  --gutter-l: var(--gutter); /* Mapping for consistency */
+  --gutter-l: var(--gutter);
 
   /* GRID SYSTEM */
   --grid-columns-xs: 4;
@@ -169,33 +165,19 @@
   --container-xxxl: 48rem;
 
   /* ============================================
-     SPACING SCALE (Fluid Clamp Approach)
+     SPACING SCALE (Fluid Clamp Approach - Corrected)
+     Min <= Max logic enforced for CSS validity.
      ============================================ */
 
-  --space-xxs: clamp(0.4rem, 0.5vw, 0.5rem); /* Fallback/Derived */
-  --space-xs: clamp(0.8rem, calc(-0.1508429459vw + 0.8339396628rem), 0.7653061224rem);
-  --space-s: clamp(1rem, calc(0.3105590062vw + 0.9301242236rem), 1.0714285714rem);
-  --space-s-to-xs: clamp(0.8rem, calc(1.1801242236vw + 0.5344720497rem), 1.0714285714rem);
-  --space-m: clamp(1.25rem, calc(1.0869565217vw + 1.0054347826rem), 1.5rem);
-  --space-m-to-s: clamp(1rem, calc(2.1739130435vw + 0.5108695652rem), 1.5rem);
-  --space-m-to-xs: clamp(0.8rem, calc(3.0434782609vw + 0.1152173913rem), 1.5rem);
-  --space-l: clamp(1.5625rem, calc(2.3369565217vw + 1.0366847826rem), 2.1rem);
-  --space-l-to-m: clamp(1.25rem, calc(3.6956521739vw + 0.4184782609rem), 2.1rem);
-  --space-l-to-s: clamp(1rem, calc(4.7826086957vw + -0.0760869565rem), 2.1rem);
-  --space-l-to-xs: clamp(0.8rem, calc(5.652173913vw + -0.4717391304rem), 2.1rem);
-  --space-xl: clamp(1.953125rem, calc(4.2907608696vw + 0.9877038043rem), 2.94rem);
-  --space-xl-to-l: clamp(1.5625rem, calc(5.9891304348vw + 0.2149456522rem), 2.94rem);
-  --space-xl-to-m: clamp(1.25rem, calc(7.347826087vw + -0.4032608696rem), 2.94rem);
-  --space-xl-to-s: clamp(1rem, calc(8.4347826087vw + -0.897826087rem), 2.94rem);
-  --space-xl-to-xs: clamp(0.8rem, calc(9.3043478261vw + -1.2934782609rem), 2.94rem);
-  --space-xxl: clamp(2.44140625rem, calc(7.2808423913vw + 0.803216712rem), 4.116rem);
-  --space-xxl-to-xl: clamp(1.953125rem, calc(9.4038043478vw + -0.1627309783rem), 4.116rem);
-  --space-xxl-to-l: clamp(1.5625rem, calc(11.102173913vw + -0.9354891304rem), 4.116rem);
-  --space-xxl-to-m: clamp(1.25rem, calc(12.4608695652vw + -1.5536956522rem), 4.116rem);
-  --space-xxl-to-s: clamp(1rem, calc(13.547826087vw + -2.0482608696rem), 4.116rem);
-  --space-xxl-to-xs: clamp(0.8rem, calc(14.4173913043vw + -2.4439130435rem), 4.116rem);
+  --space-xxs: clamp(0.4rem, 0.5vw, 0.5rem);
+  /* Corrected logic: ensuring growth direction is standard (mobile -> desktop) */
+  --space-xs: clamp(0.75rem, calc(0.7rem + 0.2vw), 0.875rem);
+  --space-s: clamp(1rem, calc(0.95rem + 0.25vw), 1.125rem);
+  --space-m: clamp(1.25rem, calc(1.15rem + 0.5vw), 1.5rem);
+  --space-l: clamp(1.5rem, calc(1.4rem + 0.5vw), 2.1rem);
+  --space-xl: clamp(2rem, calc(1.8rem + 1vw), 3rem);
+  --space-xxl: clamp(3rem, calc(2.8rem + 1vw), 4.5rem);
 
-  /* Additional mappings for existing system */
   --space-xxxl: calc(var(--space-xxl) * 1.5);
   --space-xxxxl: calc(var(--space-xxl) * 2);
 
@@ -224,30 +206,15 @@
   --button-gap: var(--space-s);
 
   /* ============================================
-     SECTION SPACING (Fluid Clamp Approach)
+     SECTION SPACING (Fluid Clamp - Corrected)
      ============================================ */
 
-  --section-space-xs: clamp(1rem, calc(5.6344276841vw + -0.2677462289rem), 2.2959183673rem);
-  --section-space-s: clamp(1.25rem, calc(8.5403726708vw + -0.6715838509rem), 3.2142857143rem);
-  --section-space-s-to-xs: clamp(1rem, calc(9.6273291925vw + -1.1661490683rem), 3.2142857143rem);
-  --section-space-m: clamp(1.5625rem, calc(12.7717391304vw + -1.3111413043rem), 4.5rem);
-  --section-space-m-to-s: clamp(1.25rem, calc(14.1304347826vw + -1.9293478261rem), 4.5rem);
-  --section-space-m-to-xs: clamp(1rem, calc(15.2173913043vw + -2.4239130435rem), 4.5rem);
-  --section-space-l: clamp(1.953125rem, calc(18.8994565217vw + -2.2992527174rem), 6.3rem);
-  --section-space-l-to-m: clamp(1.5625rem, calc(20.597826087vw + -3.0720108696rem), 6.3rem);
-  --section-space-l-to-s: clamp(1.25rem, calc(21.9565217391vw + -3.6902173913rem), 6.3rem);
-  --section-space-l-to-xs: clamp(1rem, calc(23.0434782609vw + -4.1847826087rem), 6.3rem);
-  --section-space-xl: clamp(2.44140625rem, calc(27.7330163043vw + -3.7985224185rem), 8.82rem);
-  --section-space-xl-to-l: clamp(1.953125rem, calc(29.8559782609vw + -4.7644701087rem), 8.82rem);
-  --section-space-xl-to-m: clamp(1.5625rem, calc(31.5543478261vw + -5.5372282609rem), 8.82rem);
-  --section-space-xl-to-s: clamp(1.25rem, calc(32.9130434783vw + -6.1554347826rem), 8.82rem);
-  --section-space-xl-to-xs: clamp(1rem, calc(34vw + -6.65rem), 8.82rem);
-  --section-space-xxl: clamp(3.0517578125rem, calc(40.4184442935vw + -6.0423921535rem), 12.348rem);
-  --section-space-xxl-to-xl: clamp(2.44140625rem, calc(43.0721467391vw + -7.2498267663rem), 12.348rem);
-  --section-space-xxl-to-l: clamp(1.953125rem, calc(45.1951086957vw + -8.2157744565rem), 12.348rem);
-  --section-space-xxl-to-m: clamp(1.5625rem, calc(46.8934782609vw + -8.9885326087rem), 12.348rem);
-  --section-space-xxl-to-s: clamp(1.25rem, calc(48.252173913vw + -9.6067391304rem), 12.348rem);
-  --section-space-xxl-to-xs: clamp(1rem, calc(49.3391304348vw + -10.1013043478rem), 12.348rem);
+  --section-space-xs: clamp(1.5rem, 3vw, 2.5rem);
+  --section-space-s: clamp(2.5rem, 4vw, 3.5rem);
+  --section-space-m: clamp(3.5rem, 5vw, 5rem);
+  --section-space-l: clamp(5rem, 6vw, 7rem);
+  --section-space-xl: clamp(7rem, 8vw, 9rem);
+  --section-space-xxl: clamp(9rem, 10vw, 12rem);
 
   /* ============================================
      TYPOGRAPHY - SETTINGS
@@ -257,45 +224,28 @@
   --font-heading: "PlusJakartaSans", "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
 
-  --heading-line-height: calc(6px + 2ex);
+  --heading-line-height: 1.2;
   --heading-font-weight: 600;
-  --heading-letter-spacing: -0.025em;
+  --heading-letter-spacing: -0.02em;
   --heading-text-wrap: pretty;
-  --base-heading-lh: calc(6px + 2ex);
 
-  --text-line-height: calc(8px + 2.25ex);
+  --text-line-height: 1.6;
   --text-text-wrap: pretty;
-  --base-text-lh: calc(8px + 2.25ex);
 
   --ls-tight: -0.02em;
   --ls-normal: 0;
   --ls-wide: 0.05em;
 
   /* ============================================
-     TYPOGRAPHY - HEADINGS (Fluid)
+     TYPOGRAPHY - HEADINGS (Fluid - Corrected)
      ============================================ */
 
-  --h6: clamp(0.75rem, calc(0.1358695652vw + 0.7194293478rem), 0.78125rem);
-  --h5: clamp(0.8125rem, calc(0.5434782609vw + 0.6902173913rem), 0.9375rem);
-  --h5-to-h6: clamp(0.75rem, calc(0.8152173913vw + 0.566576087rem), 0.9375rem);
-  --h4: clamp(0.9375rem, calc(0.8152173913vw + 0.754076087rem), 1.125rem);
-  --h4-to-h5: clamp(0.8125rem, calc(1.3586956522vw + 0.5067934783rem), 1.125rem);
-  --h4-to-h6: clamp(0.75rem, calc(1.6304347826vw + 0.3831521739rem), 1.125rem);
-  --h3: clamp(1.03125rem, calc(1.3858695652vw + 0.7194293478rem), 1.35rem);
-  --h3-to-h4: clamp(0.9375rem, calc(1.7934782609vw + 0.5339673913rem), 1.35rem);
-  --h3-to-h5: clamp(0.8125rem, calc(2.3369565217vw + 0.2866847826rem), 1.35rem);
-  --h3-to-h6: clamp(0.75rem, calc(2.6086956522vw + 0.1630434783rem), 1.35rem);
-  --h2: clamp(1.134375rem, calc(2.1114130435vw + 0.6593070652rem), 1.62rem);
-  --h2-to-h3: clamp(1.03125rem, calc(2.5597826087vw + 0.455298913rem), 1.62rem);
-  --h2-to-h4: clamp(0.9375rem, calc(2.9673913043vw + 0.2698369565rem), 1.62rem);
-  --h2-to-h5: clamp(0.8125rem, calc(3.5108695652vw + 0.0225543478rem), 1.62rem);
-  --h2-to-h6: clamp(0.75rem, calc(3.7826086957vw + -0.1010869565rem), 1.62rem);
-  --h1: clamp(1.2478125rem, calc(3.0269021739vw + 0.5667595109rem), 1.944rem);
-  --h1-to-h2: clamp(1.134375rem, calc(3.5201086957vw + 0.3423505435rem), 1.944rem);
-  --h1-to-h3: clamp(1.03125rem, calc(3.9684782609vw + 0.1383423913rem), 1.944rem);
-  --h1-to-h4: clamp(0.9375rem, calc(4.3760869565vw + -0.0471195652rem), 1.944rem);
-  --h1-to-h5: clamp(0.8125rem, calc(4.9195652174vw + -0.2944021739rem), 1.944rem);
-  --h1-to-h6: clamp(0.75rem, calc(5.1913043478vw + -0.4180434783rem), 1.944rem);
+  --h6: clamp(1rem, 1.5vw, 1.125rem);
+  --h5: clamp(1.125rem, 2vw, 1.35rem);
+  --h4: clamp(1.35rem, 2.5vw, 1.75rem);
+  --h3: clamp(1.75rem, 3vw, 2.25rem);
+  --h2: clamp(2.25rem, 4vw, 3rem);
+  --h1: clamp(2.75rem, 5vw, 4rem);
 
   --lh-heading: var(--heading-line-height);
   --lh-tight: 1.1;
@@ -303,30 +253,15 @@
   --lh-loose: 1.75;
 
   /* ============================================
-     TYPOGRAPHY - TEXT (Fluid)
+     TYPOGRAPHY - TEXT (Fluid - Corrected)
      ============================================ */
 
-  --text-xs: clamp(0.75rem, calc(0.1358695652vw + 0.7194293478rem), 0.78125rem);
-  --text-s: clamp(0.8125rem, calc(0.5434782609vw + 0.6902173913rem), 0.9375rem);
-  --text-s-to-xs: clamp(0.75rem, calc(0.8152173913vw + 0.566576087rem), 0.9375rem);
-  --text-m: clamp(0.9375rem, calc(0.8152173913vw + 0.754076087rem), 1.125rem);
-  --text-m-to-s: clamp(0.8125rem, calc(1.3586956522vw + 0.5067934783rem), 1.125rem);
-  --text-m-to-xs: clamp(0.75rem, calc(1.6304347826vw + 0.3831521739rem), 1.125rem);
-  --text-l: clamp(1.03125rem, calc(1.3858695652vw + 0.7194293478rem), 1.35rem);
-  --text-l-to-m: clamp(0.9375rem, calc(1.7934782609vw + 0.5339673913rem), 1.35rem);
-  --text-l-to-s: clamp(0.8125rem, calc(2.3369565217vw + 0.2866847826rem), 1.35rem);
-  --text-l-to-xs: clamp(0.75rem, calc(2.6086956522vw + 0.1630434783rem), 1.35rem);
-  --text-xl: clamp(1.134375rem, calc(2.1114130435vw + 0.6593070652rem), 1.62rem);
-  --text-xl-to-l: clamp(1.03125rem, calc(2.5597826087vw + 0.455298913rem), 1.62rem);
-  --text-xl-to-m: clamp(0.9375rem, calc(2.9673913043vw + 0.2698369565rem), 1.62rem);
-  --text-xl-to-s: clamp(0.8125rem, calc(3.5108695652vw + 0.0225543478rem), 1.62rem);
-  --text-xl-to-xs: clamp(0.75rem, calc(3.7826086957vw + -0.1010869565rem), 1.62rem);
-  --text-xxl: clamp(1.2478125rem, calc(3.0269021739vw + 0.5667595109rem), 1.944rem);
-  --text-xxl-to-xl: clamp(1.134375rem, calc(3.5201086957vw + 0.3423505435rem), 1.944rem);
-  --text-xxl-to-l: clamp(1.03125rem, calc(3.9684782609vw + 0.1383423913rem), 1.944rem);
-  --text-xxl-to-m: clamp(0.9375rem, calc(4.3760869565vw + -0.0471195652rem), 1.944rem);
-  --text-xxl-to-s: clamp(0.8125rem, calc(4.9195652174vw + -0.2944021739rem), 1.944rem);
-  --text-xxl-to-xs: clamp(0.75rem, calc(5.1913043478vw + -0.4180434783rem), 1.944rem);
+  --text-xs: clamp(0.75rem, 0.8vw, 0.875rem);
+  --text-s: clamp(0.875rem, 0.9vw, 1rem);
+  --text-m: clamp(1rem, 1vw, 1.125rem);
+  --text-l: clamp(1.125rem, 1.2vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.5vw, 1.5rem);
+  --text-xxl: clamp(1.5rem, 2vw, 2rem);
 
   /* ============================================
      BORDER RADIUS
@@ -387,7 +322,7 @@
   --focus-ring-inset: inset 0 0 0 var(--focus-width) var(--focus-color);
 
   /* REDUCED MOTION */
-  --animation-duration: var(--transition-base);
+  --animation-duration: 300ms;
   --animation-distance: 1rem;
 
   /* ============================================
