@@ -10,7 +10,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<div id="page" class="site">
+<div id="page" class="site-wrapper">
 	
 	<!-- Skip link for accessibility -->
 	<a class="skip-link screen-reader-text" href="#primary">

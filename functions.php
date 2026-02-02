@@ -83,49 +83,52 @@ function erewhon_scripts() {
 		array(), 
 		$version 
 	);
-	
-	// 2. Design tokens
-	wp_enqueue_style( 
-		'erewhon-tokens', 
-		$css_uri . 'tokens.css', 
-		array(), 
-		$version 
+
+	// 2. Design tokens (Foundation)
+	wp_enqueue_style(
+		'erewhon-tokens',
+		$css_uri . 'token.css',
+		array(),
+		$version
 	);
-	
-	// 3. Base styles (depends on fonts + tokens)
-	wp_enqueue_style( 
-		'erewhon-base', 
-		$css_uri . 'base.css', 
-		array( 'erewhon-fonts', 'erewhon-tokens' ), 
-		$version 
+
+	// 3. Base styles (Reset & Defaults)
+	wp_enqueue_style(
+		'erewhon-base',
+		$css_uri . 'base.css',
+		array( 'erewhon-fonts', 'erewhon-tokens' ),
+		$version
 	);
-	
-	// 4. Component styles
-	wp_enqueue_style( 
-		'erewhon-utilities', 
-		$css_uri . 'utilities.css', 
-		array( 'erewhon-tokens' ), 
-		$version 
+
+	// 4. Layout (Structure)
+	wp_enqueue_style(
+		'erewhon-layout',
+		$css_uri . 'layout.css',
+		array( 'erewhon-base' ),
+		$version
 	);
-	
-	wp_enqueue_style( 
-		'erewhon-navigation', 
-		$css_uri . 'navigation.css', 
-		array( 'erewhon-tokens' ), 
-		$version 
+
+	// 5. Components (UI Elements)
+	wp_enqueue_style(
+		'erewhon-components',
+		$css_uri . 'component.css',
+		array( 'erewhon-layout' ),
+		$version
 	);
-	
-	wp_enqueue_style( 
-		'erewhon-button', 
-		$css_uri . 'button.css', 
-		array( 'erewhon-tokens' ), 
-		$version 
+
+	// 6. Utilities (Helpers)
+	wp_enqueue_style(
+		'erewhon-utilities',
+		$css_uri . 'utilities.css',
+		array( 'erewhon-components' ),
+		$version
 	);
-	
+
+	// 7. Main Stylesheet (Metadata & Overrides)
 	wp_enqueue_style( 
-		'erewhon-cards', 
-		$css_uri . 'cards.css', 
-		array( 'erewhon-tokens' ), 
+		'erewhon-style',
+		get_stylesheet_uri(),
+		array( 'erewhon-utilities' ),
 		$version 
 	);
 	
@@ -174,6 +177,8 @@ $required_files = array(
 	'/inc/template-tags.php',
 	'/inc/template-functions.php',
 	'/inc/customizer.php',
+	'/inc/data-helpers.php',
+	'/inc/seo-helpers.php',
 );
 
 foreach ( $required_files as $file ) {

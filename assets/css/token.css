@@ -1,0 +1,374 @@
+/**
+ * Erewhon Design Tokens
+ * Professional-grade color system with variants
+ * ACSS-compliant spacing and layout tokens
+ *
+ * @package Erewhon
+ */
+
+:root {
+  /* ============================================
+     COLOR SYSTEM - EXPANDED
+     ============================================ */
+
+  /* PRIMARY PALETTE */
+  --primary: oklch(47% 0.168 245);
+  --primary-hover: oklch(52% 0.175 245);
+  --primary-dark: oklch(38% 0.155 245);
+  --primary-ultra-dark: oklch(28% 0.140 245);
+  --primary-light: oklch(84% 0.092 245);
+  --primary-ultra-light: oklch(95% 0.035 245);
+
+  /* PRIMARY TRANSPARENCY */
+  --primary-trans-10: oklch(47% 0.168 245 / 0.1);
+  --primary-trans-20: oklch(47% 0.168 245 / 0.2);
+  --primary-trans-30: oklch(47% 0.168 245 / 0.3);
+  --primary-trans-50: oklch(47% 0.168 245 / 0.5);
+  --primary-trans-70: oklch(47% 0.168 245 / 0.7);
+  --primary-trans-90: oklch(47% 0.168 245 / 0.9);
+
+  /* SECONDARY PALETTE - Base: oklch(45% 0.142 15) */
+  --secondary: oklch(45% 0.142 15);
+  --secondary-hover: oklch(50% 0.148 15);
+  --secondary-dark: oklch(35% 0.130 15);
+  --secondary-ultra-dark: oklch(25% 0.115 15);
+  --secondary-light: oklch(80% 0.080 15);
+  --secondary-ultra-light: oklch(95% 0.035 15);
+
+  /* SECONDARY TRANSPARENCY */
+  --secondary-trans-10: oklch(45% 0.142 15 / 0.1);
+  --secondary-trans-20: oklch(45% 0.142 15 / 0.2);
+  --secondary-trans-50: oklch(45% 0.142 15 / 0.5);
+  --secondary-trans-90: oklch(45% 0.142 15 / 0.9);
+
+  /* SUCCESS PALETTE */
+  --success: oklch(63% 0.142 145);
+  --success-dark: oklch(53% 0.130 145);
+  --success-ultra-dark: oklch(43% 0.115 145);
+  --success-light: oklch(85% 0.080 145);
+  --success-ultra-light: oklch(95% 0.035 145);
+
+  /* WARNING PALETTE */
+  --warning: oklch(76% 0.135 88);
+  --warning-dark: oklch(66% 0.125 88);
+  --warning-ultra-dark: oklch(56% 0.110 88);
+  --warning-light: oklch(88% 0.075 88);
+  --warning-ultra-light: oklch(96% 0.030 88);
+
+  /* ERROR PALETTE */
+  --error: oklch(58% 0.185 25);
+  --error-dark: oklch(48% 0.170 25);
+  --error-ultra-dark: oklch(38% 0.150 25);
+  --error-light: oklch(85% 0.095 25);
+  --error-ultra-light: oklch(95% 0.040 25);
+
+  /* TEXT COLORS */
+  --text-primary: oklch(16% 0.014 245);
+  --text-secondary: oklch(42% 0.020 245);
+  --text-tertiary: oklch(56% 0.026 245);
+  --text-quaternary: oklch(70% 0.015 245);
+  --text-on-primary: oklch(99.8% 0.001 245);
+  --text-on-secondary: oklch(99.8% 0.001 15);
+  --text-on-dark: oklch(99.8% 0.001 245);
+
+  /* DARK MODE SUPPORT */
+  --text-inverse: var(--text-on-dark);
+  --bg-inverse: var(--text-primary);
+
+  /* Surface layers for depth */
+  --surface-1: var(--bg-surface);
+  --surface-2: oklch(98% 0.003 245);
+  --surface-3: oklch(96% 0.005 245);
+  --surface-4: oklch(94% 0.007 245);
+
+  /* BACKGROUND COLORS */
+  --bg-body: oklch(99.3% 0.002 245);
+  --bg-surface: oklch(100% 0 0);
+  --bg-muted: oklch(93.5% 0.008 245);
+  --bg-hover: oklch(96% 0.005 245);
+
+  /* GLASSMORPHISM / BLUR */
+  --blur-xs: blur(4px);
+  --blur-sm: blur(8px);
+  --blur-md: blur(12px);
+  --blur-lg: blur(16px);
+  --blur-xl: blur(24px);
+  --blur-xxl: blur(40px);
+
+  --glass-light: oklch(100% 0 0 / 0.7);
+  --glass-medium: oklch(100% 0 0 / 0.5);
+  --glass-heavy: oklch(100% 0 0 / 0.3);
+  --glass-dark: oklch(16% 0.014 245 / 0.6);
+  --glass-effect: var(--glass-medium);
+  --glass-border: oklch(100% 0 0 / 0.18);
+  --glass-shadow: 0 8px 32px oklch(22% 0.012 245 / 0.1);
+
+  /* BACKGROUND TRANSPARENCY */
+  --bg-overlay: oklch(16% 0.014 245 / 0.5);
+  --bg-overlay-light: oklch(16% 0.014 245 / 0.3);
+  --bg-overlay-heavy: oklch(16% 0.014 245 / 0.7);
+
+  /* GRADIENT SYSTEM */
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  --gradient-primary-subtle: linear-gradient(135deg, var(--primary-ultra-light) 0%, var(--bg-surface) 100%);
+  --gradient-primary-radial: radial-gradient(circle at top right, var(--primary-trans-20), transparent 70%);
+
+  --gradient-trust: linear-gradient(135deg, var(--primary) 0%, oklch(52% 0.145 195) 100%);
+  --gradient-health: linear-gradient(135deg, var(--success) 0%, oklch(70% 0.130 160) 100%);
+  --gradient-care: linear-gradient(135deg, var(--secondary) 0%, oklch(60% 0.125 35) 100%);
+
+  --gradient-overlay-dark: linear-gradient(180deg, transparent 0%, var(--bg-overlay-heavy) 100%);
+  --gradient-overlay-light: linear-gradient(180deg, var(--bg-overlay-light) 0%, transparent 100%);
+  --gradient-mesh: radial-gradient(at 40% 20%, var(--primary-trans-10) 0px, transparent 50%),
+                   radial-gradient(at 80% 0%, var(--secondary-trans-10) 0px, transparent 50%),
+                   radial-gradient(at 0% 50%, oklch(63% 0.142 145 / 0.1) 0px, transparent 50%);
+
+  --gradient-shimmer: linear-gradient(90deg, transparent 0%, var(--bg-hover) 20%, var(--bg-hover) 60%, transparent 100%);
+
+  /* BORDER COLORS */
+  --border-light: oklch(88% 0.009 245);
+  --border-default: oklch(78% 0.012 245);
+  --border-strong: oklch(68% 0.015 245);
+
+  /* ============================================
+     LAYOUT TOKENS
+     ============================================ */
+
+  --site-max-width: 120rem;  /* 1920px */
+  --content-width: 85.375rem; /* 1366px */
+  --content-width-narrow: 60rem;
+  --content-width-text: 48rem;
+  --content-width-wide: 100rem;
+
+  --section-padding-block: var(--section-space-m);
+  --gutter: clamp(1rem, calc(17.3913043478vw + -2.9130434783rem), 5rem);
+  --gutter-l: var(--gutter);
+
+  /* GRID SYSTEM */
+  --grid-columns-xs: 4;
+  --grid-columns-sm: 8;
+  --grid-columns-md: 12;
+  --grid-columns-lg: 12;
+
+  --grid-auto-xs: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  --grid-auto-sm: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  --grid-auto-md: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  --grid-auto-lg: repeat(auto-fit, minmax(min(100%, 25rem), 1fr));
+
+  /* CONTAINER QUERIES */
+  --container-xs: 20rem;
+  --container-sm: 24rem;
+  --container-md: 28rem;
+  --container-lg: 32rem;
+  --container-xl: 36rem;
+  --container-xxl: 42rem;
+  --container-xxxl: 48rem;
+
+  /* ============================================
+     SPACING SCALE (Fluid Clamp Approach - Corrected)
+     Min <= Max logic enforced for CSS validity.
+     ============================================ */
+
+  --space-xxs: clamp(0.4rem, 0.5vw, 0.5rem);
+  /* Corrected logic: ensuring growth direction is standard (mobile -> desktop) */
+  --space-xs: clamp(0.75rem, calc(0.7rem + 0.2vw), 0.875rem);
+  --space-s: clamp(1rem, calc(0.95rem + 0.25vw), 1.125rem);
+  --space-m: clamp(1.25rem, calc(1.15rem + 0.5vw), 1.5rem);
+  --space-l: clamp(1.5rem, calc(1.4rem + 0.5vw), 2.1rem);
+  --space-xl: clamp(2rem, calc(1.8rem + 1vw), 3rem);
+  --space-xxl: clamp(3rem, calc(2.8rem + 1vw), 4.5rem);
+
+  --space-xxxl: calc(var(--space-xxl) * 1.5);
+  --space-xxxxl: calc(var(--space-xxl) * 2);
+
+  /* ============================================
+     GAP TOKENS
+     ============================================ */
+
+  --content-gap: var(--space-s);
+  --content-gap-s: var(--space-xs);
+  --content-gap-l: var(--space-m);
+
+  --container-gap: var(--space-l);
+  --container-gap-l: var(--space-xl);
+  --container-gap-xl: var(--space-xxl);
+
+  --gap-eyebrow-heading: var(--space-xs);
+  --gap-heading-body: var(--space-m);
+  --gap-section-section: var(--space-l);
+
+  --grid-gap-s: var(--space-m);
+  --grid-gap-m: var(--space-l);
+  --grid-gap-l: var(--space-xl);
+  --grid-gap-xl: var(--space-xxl);
+
+  --inline-gap: var(--space-xs);
+  --button-gap: var(--space-s);
+
+  /* ============================================
+     SECTION SPACING (Fluid Clamp - Corrected)
+     ============================================ */
+
+  --section-space-xs: clamp(1.5rem, 3vw, 2.5rem);
+  --section-space-s: clamp(2.5rem, 4vw, 3.5rem);
+  --section-space-m: clamp(3.5rem, 5vw, 5rem);
+  --section-space-l: clamp(5rem, 6vw, 7rem);
+  --section-space-xl: clamp(7rem, 8vw, 9rem);
+  --section-space-xxl: clamp(9rem, 10vw, 12rem);
+
+  /* ============================================
+     TYPOGRAPHY - SETTINGS
+     ============================================ */
+
+  --font-body: "PlusJakartaSans", "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: "PlusJakartaSans", "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+
+  --heading-line-height: 1.2;
+  --heading-font-weight: 600;
+  --heading-letter-spacing: -0.02em;
+  --heading-text-wrap: pretty;
+
+  --text-line-height: 1.6;
+  --text-text-wrap: pretty;
+
+  --ls-tight: -0.02em;
+  --ls-normal: 0;
+  --ls-wide: 0.05em;
+
+  /* ============================================
+     TYPOGRAPHY - HEADINGS (Fluid - Corrected)
+     ============================================ */
+
+  --h6: clamp(1rem, 1.5vw, 1.125rem);
+  --h5: clamp(1.125rem, 2vw, 1.35rem);
+  --h4: clamp(1.35rem, 2.5vw, 1.75rem);
+  --h3: clamp(1.75rem, 3vw, 2.25rem);
+  --h2: clamp(2.25rem, 4vw, 3rem);
+  --h1: clamp(2.75rem, 5vw, 4rem);
+
+  --lh-heading: var(--heading-line-height);
+  --lh-tight: 1.1;
+  --lh-standard: var(--text-line-height);
+  --lh-loose: 1.75;
+
+  /* ============================================
+     TYPOGRAPHY - TEXT (Fluid - Corrected)
+     ============================================ */
+
+  --text-xs: clamp(0.75rem, 0.8vw, 0.875rem);
+  --text-s: clamp(0.875rem, 0.9vw, 1rem);
+  --text-m: clamp(1rem, 1vw, 1.125rem);
+  --text-l: clamp(1.125rem, 1.2vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.5vw, 1.5rem);
+  --text-xxl: clamp(1.5rem, 2vw, 2rem);
+
+  /* ============================================
+     BORDER RADIUS
+     ============================================ */
+
+  --radius-none: 0;
+  --radius-xs: 0.25rem;   /* 4px */
+  --radius-s: 0.375rem;   /* 6px */
+  --radius-m: 0.5rem;     /* 8px */
+  --radius-l: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-xxl: 1.5rem;   /* 24px */
+  --radius-pill: 9999px;
+  --radius-circle: 50%;
+
+  /* ============================================
+     SHADOWS
+     ============================================ */
+
+  --shadow-color: oklch(22% 0.012 245);
+
+  --shadow-xs: 0 1px 2px var(--shadow-color / 0.06);
+  --shadow-sm: 0 1px 3px var(--shadow-color / 0.08);
+  --shadow-md: 0 4px 6px var(--shadow-color / 0.10);
+  --shadow-lg: 0 10px 15px var(--shadow-color / 0.12);
+  --shadow-xl: 0 20px 25px var(--shadow-color / 0.15);
+  --shadow-xxl: 0 25px 50px var(--shadow-color / 0.20);
+
+  --shadow-inner: inset 0 2px 4px var(--shadow-color / 0.06);
+
+  /* ASPECT RATIOS */
+  --aspect-square: 1 / 1;
+  --aspect-video: 16 / 9;
+  --aspect-video-vertical: 9 / 16;
+  --aspect-photo: 4 / 3;
+  --aspect-photo-portrait: 3 / 4;
+  --aspect-ultrawide: 21 / 9;
+  --aspect-golden: 1.618 / 1;
+  --aspect-medical-card: 5 / 3;
+  --aspect-testimonial: 4 / 5;
+
+  /* ICON SIZING */
+  --icon-xxs: 0.75rem;
+  --icon-xs: 1rem;
+  --icon-s: 1.25rem;
+  --icon-m: 1.5rem;
+  --icon-l: 2rem;
+  --icon-xl: 2.5rem;
+  --icon-xxl: 3rem;
+  --icon-xxxl: 4rem;
+
+  /* FOCUS & ACCESSIBILITY */
+  --focus-color: var(--primary);
+  --focus-width: 2px;
+  --focus-offset: 2px;
+  --focus-style: solid;
+  --focus-ring: 0 0 0 var(--focus-offset) var(--bg-surface), 0 0 0 calc(var(--focus-offset) + var(--focus-width)) var(--focus-color);
+  --focus-ring-inset: inset 0 0 0 var(--focus-width) var(--focus-color);
+
+  /* REDUCED MOTION */
+  --animation-duration: 300ms;
+  --animation-distance: 1rem;
+
+  /* ============================================
+     TRANSITIONS
+     ============================================ */
+
+  --transition-instant: 100ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slowest: 600ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Easing functions */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --ease-heartbeat: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-pulse: cubic-bezier(0.42, 0, 0.58, 1);
+  --ease-gentle: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-comfort: cubic-bezier(0.33, 0, 0.2, 1);
+
+  /* ============================================
+     Z-INDEX SCALE
+     ============================================ */
+
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-fixed: 1200;
+  --z-modal-backdrop: 1300;
+  --z-modal: 1400;
+  --z-popover: 1500;
+  --z-tooltip: 1600;
+
+  /* ============================================
+     BREAKPOINTS (explicit reference)
+     ============================================ */
+
+  --breakpoint-xs: 23rem;
+  --breakpoint-sm: 36rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 62rem;
+  --breakpoint-xl: 75rem;
+  --breakpoint-xxl: 87.5rem;
+}
