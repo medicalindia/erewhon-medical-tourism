@@ -148,7 +148,7 @@ get_header();
 
 						<!-- Footer -->
 						<div class="card__footer">
-							<a href="<?php the_permalink(); ?>" class="btn btn--primary">
+							<a href="<?php the_permalink(); ?>" class="btn btn--primary" aria-label="<?php echo esc_attr( 'View Details for ' . get_the_title() ); ?>">
 								View Hospital Details
 							</a>
 						</div>

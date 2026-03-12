@@ -148,7 +148,7 @@ get_header();
 
 						<!-- Footer -->
 						<div class="card__footer">
-							<a href="<?php the_permalink(); ?>" class="btn btn--primary" style="width: 100%;">
+							<a href="<?php the_permalink(); ?>" class="btn btn--primary" style="width: 100%;" aria-label="<?php echo esc_attr( 'View Profile for ' . $full_name ); ?>">
 								View Profile
 							</a>
 						</div>
