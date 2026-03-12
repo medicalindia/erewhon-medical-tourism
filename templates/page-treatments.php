@@ -119,7 +119,7 @@ get_header();
 
 						<!-- Footer -->
 						<div class="card__footer">
-							<a href="<?php the_permalink(); ?>" class="btn btn--outline" style="width: 100%;">
+							<a href="<?php the_permalink(); ?>" class="btn btn--outline" style="width: 100%;" aria-label="<?php echo esc_attr( 'Learn More about ' . get_the_title() ); ?>">
 								Learn More
 							</a>
 						</div>
