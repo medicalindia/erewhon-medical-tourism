@@ -1,0 +1,16 @@
+[Thu Mar 12 20:12:01 2026] PHP 8.3.6 Development Server (http://localhost:8000) started
+[Thu Mar 12 20:12:25 2026] [::1]:36008 Accepted
+[Thu Mar 12 20:12:25 2026] [::1]:36008 [200]: GET /prototype.php
+[Thu Mar 12 20:12:25 2026] [::1]:36008 Closing
+[Thu Mar 12 20:12:46 2026] [::1]:33312 Accepted
+[Thu Mar 12 20:12:46 2026] [::1]:33312 [200]: GET /prototype.php
+[Thu Mar 12 20:12:46 2026] [::1]:33312 Closing
+[Thu Mar 12 20:13:41 2026] [::1]:57790 Accepted
+[Thu Mar 12 20:13:41 2026] [::1]:57790 [200]: GET /prototype.php
+[Thu Mar 12 20:13:41 2026] [::1]:57790 Closing
+[Thu Mar 12 20:14:04 2026] [::1]:59130 Accepted
+[Thu Mar 12 20:14:04 2026] [::1]:59130 [200]: GET /prototype.php
+[Thu Mar 12 20:14:04 2026] [::1]:59130 Closing
+[Thu Mar 12 20:14:25 2026] [::1]:34958 Accepted
+[Thu Mar 12 20:14:25 2026] [::1]:34958 [200]: GET /prototype.php
+[Thu Mar 12 20:14:25 2026] [::1]:34958 Closing
